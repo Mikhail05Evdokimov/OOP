@@ -2,7 +2,8 @@ package ru.nsu.mevdokimov1;
 
 //import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-//import java.util.Random;
+import java.util.Random;
+import java.util.Arrays;
 
 /**
  * Class with tests for my project.
@@ -51,17 +52,22 @@ public class tests {
     /**
      *Test number four with random elements.
      */
- /*   @Test
+    @Test
     public void fourthTest()
     {
-        int[] arr1 = {};
-        arr1[0] = randomNumber.nextInt(200);
-        arr1[1] = randomNumber.nextInt(200);
-        arr1[2] = randomNumber.nextInt(200);
-        arr1[3] = randomNumber.nextInt(200);
-        arr1[4] = randomNumber.nextInt(200);
+        int[] arr1;
+        arr1 = new int [6];
+        int[] arr;
+        arr = new int [6];
+        final Random random = new Random();
+        for(int i = 0; i < 6; i++){
+            arr1[i] = random.nextInt();
+            arr[i] = arr1[i];
+        }
+        Arrays.sort(arr);
         heapsort ob = new heapsort();
         ob.sort(arr1);
-        assert arr1[0] == 1;
-    }*/
+        for (int i = 0; i < 6; i++)
+            assert arr[i] == arr1[i];
+    }
 }
