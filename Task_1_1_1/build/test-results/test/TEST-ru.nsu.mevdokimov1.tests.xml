@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.nsu.mevdokimov1.tests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-09-21T14:36:54" hostname="VL-NB-03" time="0.128">
+  <properties/>
+  <testcase name="firstTest()" classname="ru.nsu.mevdokimov1.tests" time="0.128"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
