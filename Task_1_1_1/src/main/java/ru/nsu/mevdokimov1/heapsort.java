@@ -1,3 +1,5 @@
+package ru.nsu.mevdokimov1;
+
 public class heapsort
 {
     public void sort(int[] arr)

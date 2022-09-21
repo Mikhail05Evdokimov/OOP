@@ -1,3 +1,5 @@
+package ru.nsu.mevdokimov1;
+
 public class tests {
     public static void main(String[] args)
     {
