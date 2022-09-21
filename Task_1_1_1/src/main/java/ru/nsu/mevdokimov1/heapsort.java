@@ -1,7 +1,12 @@
 package ru.nsu.mevdokimov1;
 
+/**
+ * My first Java project.*/
 public class heapsort
 {
+    /**
+     *  makes binary heap and extracts the Max. element.
+     *  @param arr - unsorted array*/
     public void sort(int[] arr)
     {
         int n = arr.length;
@@ -19,6 +24,11 @@ public class heapsort
         }
     }
 
+    /**
+     *  chooses the biggest element from a root and its sons.
+     *  @param n - number of elements
+     *  @param arr - working array
+     *  @param i - current root*/
     public void heapify(int []arr, int n, int i)
     {
         int largest = i;
@@ -41,6 +51,9 @@ public class heapsort
         }
     }
 
+    /**
+     *  just the main function.
+     *  @param args - base*/
     public static void main(String[] args)
     {
         int[] arr = {5, 4, 6, 1, 2, 3};
