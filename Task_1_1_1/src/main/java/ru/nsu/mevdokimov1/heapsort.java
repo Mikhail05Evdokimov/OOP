@@ -50,18 +50,4 @@ public class heapsort
             heapify(arr, n, largest);
         }
     }
-
-    /**
-     *  just the main function.
-     *  @param args - base*/
-    public static void main(String[] args)
-    {
-        int[] arr = {5, 4, 6, 1, 2, 3};
-
-        heapsort ob = new heapsort();
-        ob.sort(arr);
-        for (int i : arr){
-            System.out.print(i + " ");
-        }
-    }
 }
