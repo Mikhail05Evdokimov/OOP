@@ -11,6 +11,7 @@ public class tests {
     /**
      *Test number one with common list of numbers.
      */
+
     @Test
     public void firstTest() {
             int[] arr = {1, 2, 3, 4, 5, 6};
@@ -23,6 +24,7 @@ public class tests {
     /**
      *Test number two with sorted list of numbers.
      */
+
     @Test
     public void secondTest() {
         int[] arr = {1, 2, 3, 4, 5, 6};
@@ -35,6 +37,7 @@ public class tests {
     /**
      *Test number three with one element.
      */
+
     @Test
     public void thirdTest() {
         int[] arr1 = {1};
@@ -46,6 +49,7 @@ public class tests {
     /**
      *Test number four with empty list.
      */
+
     @Test
     public void fourthTest() {
         int[] arr1 = {};
