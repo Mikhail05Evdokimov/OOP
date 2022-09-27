@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc7bb353-0158-4d51-8191-23008e6725a6" name="Changes" comment="" />
+    <list default="true" id="fc7bb353-0158-4d51-8191-23008e6725a6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/nsu/mevdokimov1/heapsort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/nsu/mevdokimov1/heapsort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/nsu/mevdokimov1/tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/nsu/mevdokimov1/tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../untitled/gradlew.bat" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
