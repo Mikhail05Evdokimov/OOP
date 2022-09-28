@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"ru.nsu.mevdokimov1","l":"heapsort"}];updateSearchResults();
