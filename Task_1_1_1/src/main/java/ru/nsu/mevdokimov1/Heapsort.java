@@ -2,7 +2,7 @@ package ru.nsu.mevdokimov1;
 
 /**
  * My first Java project.*/
-public class heapsort {
+public class Heapsort {
     /**
      *  makes binary heap and extracts the Max. element.
      *
