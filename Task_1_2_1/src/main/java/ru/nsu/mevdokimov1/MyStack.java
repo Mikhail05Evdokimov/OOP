@@ -1,16 +1,31 @@
 package ru.nsu.mevdokimov1;
 
-public class MyStack {
+import java.util.Arrays;
 
-    public static int[] stack;
-    public static int cnt = 0;
+public class MyStack <T>{
+
+    public int cap = 8;
+    public int cnt = 0;
+    public T[] stack;
+
+    /**
+     * function to init the stack.
+     */
+    @SuppressWarnings("unchecked")
+    public void CreateStack(){
+        stack = (T[]) new Object[cap];
+    }
 
     /**
      * procedure push, which add one element to stack.
      *
      * @param arg - element to add
      */
-    public static void push(int arg){
+    public void push(T arg){
+        if(cnt >= cap){
+            cap *= 2;
+            stack = Arrays.copyOf(stack, cap);
+        }
         stack[cnt] = arg;
         cnt++;
     }
@@ -20,11 +35,10 @@ public class MyStack {
      *
      * @param arr - array of elements to add
      */
-    public static void pushStack(int[] arr){
+    public void pushStack(T[] arr){
         int n = arr.length;
         for(int i = 0; i < n; i++){
-            stack[cnt] = arr[i];
-            cnt++;
+            push(arr[i]);
         }
     }
 
@@ -32,36 +46,37 @@ public class MyStack {
      * function pop, which extract one element from stack.
      * no params
      */
-    public static int pop(){
-        int ans = stack[cnt];
+    public T pop(){
+        if(cnt == 0){
+            return null;
+        }
         cnt--;
-        return ans;
+        return stack[cnt];
     }
 
     /**
      * function popStack, which extract n elements from stack.
      *
      * @param n - number of elements to extract
+     *
      */
-    public static int[] popStack(int n){
-        int[] ansArr ;
-        ansArr = new int[n];
+    @SuppressWarnings("unchecked")
+    public T[] popStack(int n){
+        T[] ansArr ;
+        ansArr = (T[]) new Object[n];
+
         for(int i = 0; i < n; i++){
-            ansArr[i] = stack[cnt];
-            cnt--;
+            ansArr[n-i-1] = pop();
         }
         return ansArr;
     }
 
-    public static void main(String[] args){
-
-        stack = new int[2048];
-        push(5);
-        push(2);
-        int[] brr = {3, 3};
-        pushStack(brr);
-        int a = pop();
-        System.out.printf("%d %d %d", stack[0], stack[1], stack[2]);
+    /**
+     * function which return the amount of elements in stack.
+     * @return cnt - amount of el. in stack.
+     */
+    public int count() {
+        return cnt;
     }
 
 }
