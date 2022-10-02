@@ -14,7 +14,7 @@ public class Tests {
      */
 
     @Test
-    public void firstTest() {
+    public void CommonTest() {
             int[] arr = {1, 2, 3, 4, 5, 6};
             int[] arr1 = {5, 4, 6, 1, 2, 3};
             Heapsort ob = new Heapsort();
@@ -27,7 +27,7 @@ public class Tests {
      */
 
     @Test
-    public void secondTest() {
+    public void SortedArrayTest() {
         int[] arr = {1, 2, 3, 4, 5, 6};
         int[] arr1 = {1, 2, 3, 4, 5, 6};
         Heapsort ob = new Heapsort();
@@ -40,7 +40,7 @@ public class Tests {
      */
 
     @Test
-    public void thirdTest() {
+    public void OneElementTest() {
         int[] arr1 = {1};
         int[] arr = {1};
         Heapsort ob = new Heapsort();
@@ -52,7 +52,7 @@ public class Tests {
      */
 
     @Test
-    public void fourthTest() {
+    public void VoidArrayTest() {
         int[] arr1 = {};
         int[] arr = {};
         Heapsort ob = new Heapsort();
