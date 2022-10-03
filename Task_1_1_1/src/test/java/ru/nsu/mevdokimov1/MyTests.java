@@ -7,27 +7,27 @@ import org.junit.jupiter.api.Test;
 /**
  * Class with tests for my project.
  */
-public class Tests {
+public class MyTests {
 
     /**
-     *Test number one with common list of numbers.
+     * Test number one with common list of numbers.
      */
 
     @Test
-    public void CommonTest() {
-            int[] arr = {1, 2, 3, 4, 5, 6};
-            int[] arr1 = {5, 4, 6, 1, 2, 3};
-            Heapsort ob = new Heapsort();
-            ob.sort(arr1);
-            assertArrayEquals(arr1, arr);
+    public void simple_test() {
+        int[] arr = {1, 2, 3, 4, 5, 6};
+        int[] arr1 = {5, 4, 6, 1, 2, 3};
+        Heapsort ob = new Heapsort();
+        ob.sort(arr1);
+        assertArrayEquals(arr1, arr);
     }
 
     /**
-     *Test number two with sorted list of numbers.
+     * Test number two with sorted list of numbers.
      */
 
     @Test
-    public void SortedArrayTest() {
+    public void sorted_test() {
         int[] arr = {1, 2, 3, 4, 5, 6};
         int[] arr1 = {1, 2, 3, 4, 5, 6};
         Heapsort ob = new Heapsort();
@@ -36,23 +36,24 @@ public class Tests {
     }
 
     /**
-     *Test number three with one element.
+     * Test number three with one element.
      */
 
     @Test
-    public void OneElementTest() {
+    public void one_el_test() {
         int[] arr1 = {1};
         int[] arr = {1};
         Heapsort ob = new Heapsort();
         ob.sort(arr1);
         assertArrayEquals(arr1, arr);
     }
+
     /**
-     *Test number four with empty list.
+     * Test number four with empty list.
      */
 
     @Test
-    public void VoidArrayTest() {
+    public void empty_test() {
         int[] arr1 = {};
         int[] arr = {};
         Heapsort ob = new Heapsort();
