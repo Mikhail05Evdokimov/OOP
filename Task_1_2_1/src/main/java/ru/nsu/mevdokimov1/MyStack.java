@@ -52,8 +52,9 @@ public class MyStack <T>{
             return null;
         }
         cnt--;
+        T ans = stack[cnt];
         stack[cnt] = null;
-        return stack[cnt];
+        return ans;
     }
 
     /**
