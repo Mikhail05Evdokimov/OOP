@@ -13,6 +13,8 @@ public class MyStack <T>{
      */
     @SuppressWarnings("unchecked")
     public void CreateStack(){
+        cap = 8;
+        cnt = 0;
         stack = (T[]) new Object[cap];
     }
 
@@ -36,9 +38,8 @@ public class MyStack <T>{
      * @param arr - array of elements to add
      */
     public void pushStack(T[] arr){
-        int n = arr.length;
-        for(int i = 0; i < n; i++){
-            push(arr[i]);
+        for (T t : arr) {
+            push(t);
         }
     }
 
@@ -51,6 +52,7 @@ public class MyStack <T>{
             return null;
         }
         cnt--;
+        stack[cnt] = null;
         return stack[cnt];
     }
 
@@ -60,15 +62,11 @@ public class MyStack <T>{
      * @param n - number of elements to extract
      *
      */
-    @SuppressWarnings("unchecked")
-    public T[] popStack(int n){
-        T[] ansArr ;
-        ansArr = (T[]) new Object[n];
 
+    public void popStack(int n){
         for(int i = 0; i < n; i++){
-            ansArr[n-i-1] = pop();
+            pop();
         }
-        return ansArr;
     }
 
     /**

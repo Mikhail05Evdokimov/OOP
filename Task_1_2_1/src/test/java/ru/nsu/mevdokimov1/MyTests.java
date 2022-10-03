@@ -26,9 +26,11 @@ public class MyTests {
         Assertions.assertEquals(a,4);
         a = Stack.count();
         Assertions.assertEquals(a,3);
-        Integer[] arr2 = Stack.popStack(2);
-        Integer[] arr3 = {2, 3};
-        assertArrayEquals(arr2, arr3);
+        Stack.popStack(2);
+        Assertions.assertEquals(Stack.stack[0],1);
+        Assertions.assertNull(Stack.stack[1]);
+        Assertions.assertNull(Stack.stack[2]);
+        Assertions.assertNull(Stack.stack[3]);
     }
 
     /**
@@ -46,9 +48,12 @@ public class MyTests {
         Assertions.assertEquals(a,13);
         a = Stack.count();
         Assertions.assertEquals(a,12);
-        Integer[] arr2 = Stack.popStack(5);
-        Integer[] arr3 = {8, 9, 10, 11, 12};
-        assertArrayEquals(arr2, arr3);
+        Stack.popStack(5);
+        for(int i = Stack.cnt; i < 12; i++){
+            Assertions.assertNull(Stack.stack[i]);
+        }
+        a = Stack.count();
+        Assertions.assertEquals(a,7);
     }
 
     /**
@@ -63,9 +68,9 @@ public class MyTests {
         Assertions.assertEquals(a,1);
         a = Stack.count();
         Assertions.assertEquals(a,0);
-        Integer[] arr2 = Stack.popStack(3);
-        Integer[] arr3 = {null, null ,null};
-        assertArrayEquals(arr2, arr3);
+        Stack.popStack(3);
+        Integer[] arr = {};
+        assertArrayEquals(Stack.stack, arr);
     }
 
     /**
@@ -82,8 +87,9 @@ public class MyTests {
         Assertions.assertEquals(Stack.count(),1);
         String[] arr1 = {"two", "three", "four"};
         Stack.pushStack(arr1);
-        String[] arr2 = Stack.popStack(2);
-        String[] arr3 = {"three", "four"};
-        assertArrayEquals(arr2, arr3);
+        Stack.popStack(2);
+        Assertions.assertEquals(Stack.stack[0],"one");
+        Assertions.assertNull(Stack.stack[3]);
+        Assertions.assertNull(Stack.stack[2]);
     }
 }
