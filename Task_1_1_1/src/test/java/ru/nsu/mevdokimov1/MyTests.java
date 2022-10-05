@@ -14,7 +14,7 @@ public class MyTests {
      */
 
     @Test
-    public void simple_test() {
+    public void simpleTest() {
         int[] arr = {1, 2, 3, 4, 5, 6};
         int[] arr1 = {5, 4, 6, 1, 2, 3};
         Heapsort ob = new Heapsort();
@@ -27,7 +27,7 @@ public class MyTests {
      */
 
     @Test
-    public void sorted_test() {
+    public void sortedTest() {
         int[] arr = {1, 2, 3, 4, 5, 6};
         int[] arr1 = {1, 2, 3, 4, 5, 6};
         Heapsort ob = new Heapsort();
@@ -40,7 +40,7 @@ public class MyTests {
      */
 
     @Test
-    public void one_el_test() {
+    public void oneElTest() {
         int[] arr1 = {1};
         int[] arr = {1};
         Heapsort ob = new Heapsort();
@@ -53,7 +53,7 @@ public class MyTests {
      */
 
     @Test
-    public void empty_test() {
+    public void emptyTest() {
         int[] arr1 = {};
         int[] arr = {};
         Heapsort ob = new Heapsort();
