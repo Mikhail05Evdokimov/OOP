@@ -1,1 +1,1 @@
-memberSearchIndex = [{"p":"ru.nsu.mevdokimov1","c":"Heapsort","l":"heapify(int[], int, int)","url":"heapify(int[],int,int)"},{"p":"ru.nsu.mevdokimov1","c":"Heapsort","l":"Heapsort()","url":"%3Cinit%3E()"},{"p":"ru.nsu.mevdokimov1","c":"Heapsort","l":"sort(int[])"}]
+memberSearchIndex = [{"p":"ru.nsu.mevdokimov1","c":"Heapsort","l":"Heapsort()","url":"%3Cinit%3E()"},{"p":"ru.nsu.mevdokimov1","c":"Heapsort","l":"sort(int[])"}]
