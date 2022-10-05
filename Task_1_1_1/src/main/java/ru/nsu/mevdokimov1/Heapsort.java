@@ -7,7 +7,7 @@ public class Heapsort {
      *  makes binary heap and extracts the Max. element.
      *
      *  @param arr - unsorted array*/
-    public void sort(int[] arr) {
+    public static void sort(int[] arr) {
         int n = arr.length;
 
         for (int i = n / 2 - 1; i >= 0; i--) {
@@ -29,7 +29,7 @@ public class Heapsort {
      *  @param n - number of elements
      *  @param arr - working array
      *  @param i - current root*/
-    private void heapify(int []arr, int n, int i) {
+    private static void heapify(int []arr, int n, int i) {
         int largest = i;
         int l = 2 * i + 1; // левый сын
         int r = 2 * i + 2; // правый сын
