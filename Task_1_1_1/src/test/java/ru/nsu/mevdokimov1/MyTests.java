@@ -17,8 +17,7 @@ public class MyTests {
     public void simpleTest() {
         int[] arr = {1, 2, 3, 4, 5, 6};
         int[] arr1 = {5, 4, 6, 1, 2, 3};
-        Heapsort ob = new Heapsort();
-        ob.sort(arr1);
+        Heapsort.sort(arr1);
         assertArrayEquals(arr1, arr);
     }
 
@@ -30,8 +29,7 @@ public class MyTests {
     public void sortedTest() {
         int[] arr = {1, 2, 3, 4, 5, 6};
         int[] arr1 = {1, 2, 3, 4, 5, 6};
-        Heapsort ob = new Heapsort();
-        ob.sort(arr1);
+        Heapsort.sort(arr1);
         assertArrayEquals(arr1, arr);
     }
 
@@ -43,8 +41,7 @@ public class MyTests {
     public void oneElTest() {
         int[] arr1 = {1};
         int[] arr = {1};
-        Heapsort ob = new Heapsort();
-        ob.sort(arr1);
+        Heapsort.sort(arr1);
         assertArrayEquals(arr1, arr);
     }
 
@@ -56,8 +53,7 @@ public class MyTests {
     public void emptyTest() {
         int[] arr1 = {};
         int[] arr = {};
-        Heapsort ob = new Heapsort();
-        ob.sort(arr1);
+        Heapsort.sort(arr1);
         assertArrayEquals(arr1, arr);
     }
 }
