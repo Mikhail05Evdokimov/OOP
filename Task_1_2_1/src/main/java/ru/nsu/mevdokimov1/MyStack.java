@@ -1,21 +1,60 @@
 package ru.nsu.mevdokimov1;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class MyStack <T>{
 
-    public int cap = 8;
-    public int cnt = 0;
-    public T[] stack;
+    private int cap = 8;
+    private int cnt = 0;
+    private T[] stack;
 
     /**
      * function to init the stack.
      */
     @SuppressWarnings("unchecked")
     public void CreateStack(){
-        cap = 8;
-        cnt = 0;
-        stack = (T[]) new Object[cap];
+        this.cap = 4;
+        this.cnt = 0;
+        this.stack = (T[]) new Object[cap];
+    }
+
+
+/**
+ * Overridden "equals" method.
+ *
+ * @param elem the element being compared
+ * @return returns true if two stacks are equal, else returns false
+ */
+    public boolean equals(Object elem) {
+        if (this == elem) {
+            return true;
+        }
+        if (elem == null || getClass() != elem.getClass()) {
+            return false;
+        }
+        MyStack<?> expected = (MyStack<?>) elem;
+        if (cnt != expected.cnt) {
+            return false;
+        }
+        for (int i = 0; i < cnt; i++) {
+            if (stack[i] != expected.stack[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Overridden "hashCode" method.
+     *
+     * @return hash
+     */
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(cnt, cap);
+        result = 31 * result + Arrays.hashCode(stack);
+        return result;
     }
 
     /**
