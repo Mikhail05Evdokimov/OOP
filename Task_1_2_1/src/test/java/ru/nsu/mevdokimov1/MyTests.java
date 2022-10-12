@@ -14,10 +14,10 @@ public class MyTests {
     @Test
     public void pushTest() {
         MyStack<Integer> stack = new MyStack<>();
-        stack.CreateStack();
+        stack.createStack();
         stack.push(1);
         MyStack<Integer> arr = new MyStack<>();
-        arr.CreateStack();
+        arr.createStack();
         arr.push(1);
         Assertions.assertEquals(arr, stack);
     }
@@ -28,10 +28,10 @@ public class MyTests {
     @Test
     public void countTest() {
         MyStack<Integer> stack = new MyStack<>();
-        stack.CreateStack();
+        stack.createStack();
         stack.push(1);
         Integer a = stack.count();
-        Assertions.assertEquals(a,1);
+        Assertions.assertEquals(a, 1);
     }
 
     /**
@@ -40,9 +40,9 @@ public class MyTests {
     @Test
     public void pushStackTest() {
         MyStack<Integer> stack = new MyStack<>();
-        stack.CreateStack();
+        stack.createStack();
         MyStack<Integer> arr1 = new MyStack<>();
-        arr1.CreateStack();
+        arr1.createStack();
         Integer[] arr = {1, 2, 3};
         stack.pushStack(arr);
         arr1.push(1);
@@ -57,9 +57,9 @@ public class MyTests {
     @Test
     public void popTest() {
         MyStack<Integer> stack = new MyStack<>();
-        stack.CreateStack();
+        stack.createStack();
         MyStack<Integer> arr1 = new MyStack<>();
-        arr1.CreateStack();
+        arr1.createStack();
         stack.push(1);
         arr1.push(1);
         arr1.push(2);
@@ -75,9 +75,9 @@ public class MyTests {
     @Test
     public void popStackTest() {
         MyStack<Integer> stack = new MyStack<>();
-        stack.CreateStack();
+        stack.createStack();
         MyStack<Integer> arr1 = new MyStack<>();
-        arr1.CreateStack();
+        arr1.createStack();
         Integer[] arr = {1, 2, 3};
         stack.pushStack(arr);
         arr1.push(1);
@@ -91,9 +91,9 @@ public class MyTests {
     @Test
     public void popReturnTest() {
         MyStack<Integer> stack = new MyStack<>();
-        stack.CreateStack();
+        stack.createStack();
         MyStack<Integer> arr1 = new MyStack<>();
-        arr1.CreateStack();
+        arr1.createStack();
         stack.push(1);
         stack.push(1);
         Integer a = stack.pop();
@@ -107,9 +107,9 @@ public class MyTests {
     @Test
     public void emptyTest() {
         MyStack<Integer> stack = new MyStack<>();
-        stack.CreateStack();
+        stack.createStack();
         MyStack<Integer> arr1 = new MyStack<>();
-        arr1.CreateStack();
+        arr1.createStack();
         stack.push(1);
         arr1.push(1);
         stack.pop();
@@ -118,24 +118,24 @@ public class MyTests {
         Assertions.assertEquals(stack, arr1);
     }
 
- /*   /**
-     * fourth test with string stack.
+    /**
+     * test with string stack.
      */
- /*   @Test
+    @Test
     public void StringTest() {
-        MyStack<String> Stack = new MyStack<>();
-        Stack.CreateStack();
-        Stack.push("one");
-        Stack.push("two");
-        String a = Stack.pop();
-        Assertions.assertEquals(a,"two");
-        Assertions.assertEquals(Stack.count(),1);
-        String[] arr1 = {"two", "three", "four"};
-        Stack.pushStack(arr1);
-        Stack.popStack(2);
-       /* Assertions.assertEquals(Stack.stack[0],"one");
-        Assertions.assertNull(Stack.stack[3]);
-        Assertions.assertNull(Stack.stack[2]);
+        MyStack<String> stack = new MyStack<>();
+        stack.createStack();
+        MyStack<String> arr1 = new MyStack<>();
+        arr1.createStack();
+        stack.push("one");
+        arr1.push("one");
+        stack.push("two");
+        arr1.push("two");
+        stack.push("three");
+        arr1.push("four");
+        stack.pop();
+        arr1.pop();
+        Assertions.assertEquals(stack, arr1);
     }
-*/
+
 }

@@ -3,7 +3,12 @@ package ru.nsu.mevdokimov1;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class MyStack <T>{
+/**
+ * Container stack with push() and pop() operations.
+ * @param <T> - type of elements in stack
+ */
+
+public class MyStack < T > {
 
     private int cap = 8;
     private int cnt = 0;
@@ -13,7 +18,7 @@ public class MyStack <T>{
      * function to init the stack.
      */
     @SuppressWarnings("unchecked")
-    public void CreateStack(){
+    public void createStack() {
         this.cap = 4;
         this.cnt = 0;
         this.stack = (T[]) new Object[cap];
@@ -22,8 +27,8 @@ public class MyStack <T>{
 
 /**
  * Overridden "equals" method.
+ * @param elem the element to compare
  *
- * @param elem the element being compared
  * @return returns true if two stacks are equal, else returns false
  */
     public boolean equals(Object elem) {
@@ -62,8 +67,8 @@ public class MyStack <T>{
      *
      * @param arg - element to add
      */
-    public void push(T arg){
-        if(cnt >= cap){
+    public void push(T arg) {
+        if(cnt >= cap) {
             cap *= 2;
             stack = Arrays.copyOf(stack, cap);
         }
@@ -76,7 +81,7 @@ public class MyStack <T>{
      *
      * @param arr - array of elements to add
      */
-    public void pushStack(T[] arr){
+    public void pushStack(T[] arr) {
         for (T t : arr) {
             push(t);
         }
@@ -86,8 +91,8 @@ public class MyStack <T>{
      * function pop, which extract one element from stack.
      * no params
      */
-    public T pop(){
-        if(cnt == 0){
+    public T pop() {
+        if(cnt == 0) {
             return null;
         }
         cnt--;
@@ -103,14 +108,15 @@ public class MyStack <T>{
      *
      */
 
-    public void popStack(int n){
-        for(int i = 0; i < n; i++){
+    public void popStack(int n) {
+        for(int i = 0; i < n; i++) {
             pop();
         }
     }
 
     /**
      * function which return the amount of elements in stack.
+     *
      * @return cnt - amount of el. in stack.
      */
     public int count() {
