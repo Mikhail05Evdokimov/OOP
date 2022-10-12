@@ -5,10 +5,11 @@ import java.util.Objects;
 
 /**
  * Container stack with push() and pop() operations.
+ *
  * @param <T> - type of elements in stack
  */
 
-public class MyStack < T > {
+public class MyStack<T> {
 
     private int cap = 8;
     private int cnt = 0;
@@ -24,13 +25,13 @@ public class MyStack < T > {
         this.stack = (T[]) new Object[cap];
     }
 
-
-/**
- * Overridden "equals" method.
- * @param elem the element to compare
- *
- * @return returns true if two stacks are equal, else returns false
- */
+    /**
+     * Overridden "equals" method.
+     *
+     * @param elem the element to compare.
+     *
+     * @return returns true if two stacks are equal, else returns false
+     */
     public boolean equals(Object elem) {
         if (this == elem) {
             return true;
@@ -68,7 +69,7 @@ public class MyStack < T > {
      * @param arg - element to add
      */
     public void push(T arg) {
-        if(cnt >= cap) {
+        if (cnt >= cap) {
             cap *= 2;
             stack = Arrays.copyOf(stack, cap);
         }
@@ -92,7 +93,7 @@ public class MyStack < T > {
      * no params
      */
     public T pop() {
-        if(cnt == 0) {
+        if (cnt == 0) {
             return null;
         }
         cnt--;
@@ -109,7 +110,7 @@ public class MyStack < T > {
      */
 
     public void popStack(int n) {
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             pop();
         }
     }

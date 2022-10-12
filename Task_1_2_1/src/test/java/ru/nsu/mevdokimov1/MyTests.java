@@ -122,7 +122,7 @@ public class MyTests {
      * test with string stack.
      */
     @Test
-    public void StringTest() {
+    public void stringTest() {
         MyStack<String> stack = new MyStack<>();
         stack.createStack();
         MyStack<String> arr1 = new MyStack<>();
@@ -135,6 +135,22 @@ public class MyTests {
         arr1.push("four");
         stack.pop();
         arr1.pop();
+        Assertions.assertEquals(stack, arr1);
+    }
+
+    /**
+     *  overflow test.
+     */
+    @Test
+    public void overflowTest() {
+        MyStack<Integer> stack = new MyStack<>();
+        stack.createStack();
+        MyStack<Integer> arr1 = new MyStack<>();
+        arr1.createStack();
+        for (int i = 0; i < 16; i++) {
+            stack.push(i);
+            arr1.push(i);
+        }
         Assertions.assertEquals(stack, arr1);
     }
 
