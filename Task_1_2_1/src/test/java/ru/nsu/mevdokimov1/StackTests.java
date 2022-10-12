@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Testing module for my stack project.
  */
-public class MyTests {
+public class StackTests {
 
     /**
      * unit test with push integer.
@@ -151,6 +151,10 @@ public class MyTests {
             stack.push(i);
             arr1.push(i);
         }
+        stack.push(44);
+        arr1.push(44);
+        stack.pop();
+        arr1.pop();
         Assertions.assertEquals(stack, arr1);
     }
 
