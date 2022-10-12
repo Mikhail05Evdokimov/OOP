@@ -10,11 +10,10 @@ import org.junit.jupiter.api.Test;
 public class MyTests {
 
     /**
-     * Test number one with common list of numbers.
+     * Test with common list of numbers.
      */
-
     @Test
-    public void simple_test() {
+    public void simpleTest() {
         int[] arr = {1, 2, 3, 4, 5, 6};
         int[] arr1 = {5, 4, 6, 1, 2, 3};
         Heapsort.sort(arr1);
@@ -22,11 +21,10 @@ public class MyTests {
     }
 
     /**
-     * Test number two with sorted list of numbers.
+     * Test with sorted list of numbers.
      */
-
     @Test
-    public void sorted_test() {
+    public void sortedTest() {
         int[] arr = {1, 2, 3, 4, 5, 6};
         int[] arr1 = {1, 2, 3, 4, 5, 6};
         Heapsort.sort(arr1);
@@ -34,11 +32,10 @@ public class MyTests {
     }
 
     /**
-     * Test number three with one element.
+     * Test with one element.
      */
-
     @Test
-    public void one_el_test() {
+    public void oneElTest() {
         int[] arr1 = {1};
         int[] arr = {1};
         Heapsort.sort(arr1);
@@ -46,11 +43,10 @@ public class MyTests {
     }
 
     /**
-     * Test number four with empty list.
+     * Test with empty list.
      */
-
     @Test
-    public void empty_test() {
+    public void emptyTest() {
         int[] arr1 = {};
         int[] arr = {};
         Heapsort.sort(arr1);
