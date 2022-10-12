@@ -128,9 +128,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
+<dl>
+<dt><span class="paramLabel">Type Parameters:</span></dt>
+<dd><code>T</code> - - type of elements in stack</dd>
+</dl>
 <hr>
 <pre>public class <span class="typeNameLabel">MyStack&lt;T&gt;</span>
 extends java.lang.Object</pre>
+<div class="block">Container stack with push() and pop() operations.</div>
 </li>
 </ul>
 </div>
@@ -181,7 +186,7 @@ extends java.lang.Object</pre>
 </tr>
 <tr id="i1" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#CreateStack()">CreateStack</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createStack()">createStack</a></span>()</code></th>
 <td class="colLast">
 <div class="block">function to init the stack.</div>
 </td>
@@ -271,13 +276,13 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="CreateStack()">
+<a id="createStack()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>CreateStack</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;CreateStack()</pre>
+<h4>createStack</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;createStack()</pre>
 <div class="block">function to init the stack.</div>
 </li>
 </ul>
@@ -293,7 +298,7 @@ extends java.lang.Object</pre>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
 <dd><code>equals</code>&nbsp;in class&nbsp;<code>java.lang.Object</code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>elem</code> - the element being compared</dd>
+<dd><code>elem</code> - the element to compare</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>returns true if two stacks are equal, else returns false</dd>
 </dl>
