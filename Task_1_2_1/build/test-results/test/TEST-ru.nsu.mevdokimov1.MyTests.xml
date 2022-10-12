@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.nsu.mevdokimov1.MyTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-12T03:14:07" hostname="VL-NB-03" time="0.095">
-  <properties/>
-  <testcase name="overflowTest()" classname="ru.nsu.mevdokimov1.MyTests" time="0.095"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
