@@ -8,7 +8,6 @@ public class MyTree<T> implements Iterable<T>{
     private MyTree<T> parent;
     public MyTree<T> root;
     private List<MyTree<T>> children;
-    private boolean color;
 
     @Override
     public Iterator<T> iterator() {
@@ -25,16 +24,6 @@ public class MyTree<T> implements Iterable<T>{
         this.parent = null;
         this.value = val;
         this.children = new ArrayList<>();
-    }
-
-    /**
-     * Function that returns the parent of current vertex.
-     * In case of root-vertex returns null.
-     *
-     * @return - parent of current vertex.
-     */
-    public MyTree<T> getParent() {
-        return this.parent;
     }
 
     /**
