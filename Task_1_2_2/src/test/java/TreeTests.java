@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class TreeTests {
@@ -115,6 +117,54 @@ public class TreeTests {
         vert1.remove();
         vert2.remove();
         Assertions.assertEquals(tree1, tree2);
+    }
+
+    @Test
+    public void bfsTest() {
+        MyTree<Integer> tree1 = new MyTree<>();
+        tree1.CreateTree(1);
+        MyTree<Integer> vert1 = tree1.add(2);
+        MyTree<Integer> vert2 = tree1.add(3);
+        vert1.add(4);
+        MyTree<Integer> vert3 = vert1.add(5);
+        vert3.add(7);
+        vert2.add(6);
+        BFSearch<Integer> bfs = new BFSearch<>(tree1.root);
+        ArrayList<Integer> arr1 = new ArrayList<>();
+        while (bfs.hasNext()) {
+            arr1.add(bfs.next());
+        }
+        ArrayList<Integer> arr2 = new ArrayList<>();
+        for(int i = 1; i < 8; i++){
+            arr2.add(i);
+        }
+        Assertions.assertEquals(arr1, arr2);
+    }
+
+    @Test
+    public void dfsTest() {
+        MyTree<Integer> tree1 = new MyTree<>();
+        tree1.CreateTree(1);
+        MyTree<Integer> vert1 = tree1.add(2);
+        MyTree<Integer> vert2 = tree1.add(3);
+        vert1.add(4);
+        MyTree<Integer> vert3 = vert1.add(5);
+        vert3.add(7);
+        vert2.add(6);
+        DFSearch<Integer> dfs = new DFSearch<>(tree1.root);
+        ArrayList<Integer> arr1 = new ArrayList<>();
+        while (dfs.hasNext()) {
+            arr1.add(dfs.next());
+        }
+        ArrayList<Integer> arr2 = new ArrayList<>();
+        arr2.add(1);
+        arr2.add(3);
+        arr2.add(6);
+        arr2.add(2);
+        arr2.add(5);
+        arr2.add(7);
+        arr2.add(4);
+        Assertions.assertEquals(arr1, arr2);
     }
 
 }
