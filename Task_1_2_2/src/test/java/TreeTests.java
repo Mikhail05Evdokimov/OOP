@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
 
 public class TreeTests {
@@ -165,6 +164,18 @@ public class TreeTests {
         arr2.add(7);
         arr2.add(4);
         Assertions.assertEquals(arr1, arr2);
+    }
+
+    @Test
+    public void removeTheRootTest() {
+        MyTree<Integer> tree1 = new MyTree<>();
+        tree1.CreateTree(1);
+        MyTree<Integer> tree2 = new MyTree<>();
+        tree2.CreateTree(1);
+        tree1.add(2);
+        tree2.add(2);
+        tree1.remove();
+        Assertions.assertEquals(tree1, tree2);
     }
 
 }
