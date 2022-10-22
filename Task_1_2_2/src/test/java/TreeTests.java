@@ -63,8 +63,8 @@ public class TreeTests {
     public void GetValTest() {
         MyTree<Integer> tree1 = new MyTree<>();
         tree1.CreateTree(1);
-        MyTree<Integer> val1 = tree1.add(2);
-        Integer a = val1.getValue();
+        MyTree<Integer> vert1 = tree1.add(2);
+        Integer a = vert1.getValue();
         MyTree<Integer> tree2 = new MyTree<>();
         tree2.CreateTree(1);
         tree2.add(a);
@@ -75,11 +75,45 @@ public class TreeTests {
     public void SetValTest() {
         MyTree<Integer> tree1 = new MyTree<>();
         tree1.CreateTree(1);
-        MyTree<Integer> val1 = tree1.add(3);
+        MyTree<Integer> vert1 = tree1.add(3);
         MyTree<Integer> tree2 = new MyTree<>();
         tree2.CreateTree(1);
         tree2.add(2);
-        val1.setValue(2);
+        vert1.setValue(2);
+        Assertions.assertEquals(tree1, tree2);
+    }
+
+    @Test
+    public void NewBranchTest() {
+        MyTree<Integer> tree1 = new MyTree<>();
+        tree1.CreateTree(1);
+        MyTree<Integer> tree2 = new MyTree<>();
+        tree2.CreateTree(1);
+        MyTree<Integer> vert1 = tree1.add(2);
+        MyTree<Integer> vert2 = tree2.add(2);
+        vert1.add(3);
+        vert2.add(3);
+        MyTree<Integer> del1 = vert1.add(4);
+        MyTree<Integer> del2 = vert2.add(5);
+        del1.remove();
+        del2.remove();
+        Assertions.assertEquals(tree1, tree2);
+    }
+
+    @Test
+    public void RemoveCentralVertexTest() {
+        MyTree<Integer> tree1 = new MyTree<>();
+        tree1.CreateTree(1);
+        MyTree<Integer> tree2 = new MyTree<>();
+        tree2.CreateTree(1);
+        MyTree<Integer> vert1 = tree1.add(2);
+        MyTree<Integer> vert2 = tree2.add(2);
+        vert1.add(3);
+        vert2.add(3);
+        vert1.add(4);
+        vert2.add(4);
+        vert1.remove();
+        vert2.remove();
         Assertions.assertEquals(tree1, tree2);
     }
 
