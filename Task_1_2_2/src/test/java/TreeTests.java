@@ -119,6 +119,23 @@ public class TreeTests {
     }
 
     @Test
+    public void RemoveCentralVertexTest2() {
+        MyTree<Integer> tree1 = new MyTree<>();
+        tree1.CreateTree(1);
+        MyTree<Integer> tree2 = new MyTree<>();
+        tree2.CreateTree(1);
+        MyTree<Integer> vert1 = tree1.add(2);
+        MyTree<Integer> vert2 = tree2.add(2);
+        vert1.add(3);
+        vert2.add(3);
+        vert1.add(4);
+        vert2.add(4);
+        tree1.remove(vert1);
+        tree2.remove(vert2);
+        Assertions.assertEquals(tree1, tree2);
+    }
+
+    @Test
     public void bfsTest() {
         MyTree<Integer> tree1 = new MyTree<>();
         tree1.CreateTree(1);
