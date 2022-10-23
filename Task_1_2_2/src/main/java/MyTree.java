@@ -40,7 +40,7 @@ public class MyTree<T> implements Iterable<T> {
      * @return modificationCounter - value of the counter.
      */
     public int getModificationCounter() {
-        return root.modificationCounter;
+        return modificationCounter;
     }
 
     /**
@@ -85,7 +85,7 @@ public class MyTree<T> implements Iterable<T> {
      * @param childVal - value of a new vertex to add.
      */
     public MyTree<T> add(T childVal) {
-        root.modificationCounter++;
+        modificationCounter++;
         MyTree<T> newSon = new MyTree<>();
         newSon.parent = this;
         newSon.value = childVal;
@@ -102,7 +102,7 @@ public class MyTree<T> implements Iterable<T> {
      * @return delValue - value of deleted vertex.
      */
     public T remove(MyTree<T> vertex) {
-        root.modificationCounter++;
+        modificationCounter++;
         if (vertex.parent == null) {
             return null;
         }
@@ -124,7 +124,7 @@ public class MyTree<T> implements Iterable<T> {
      * @return - returns the value of removed vertex.
      */
     public T remove() {
-        root.modificationCounter++;
+        modificationCounter++;
         if (this.parent == null) {
             return null;
         }
