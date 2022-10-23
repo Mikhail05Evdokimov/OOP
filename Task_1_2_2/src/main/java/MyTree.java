@@ -1,6 +1,6 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -20,9 +20,9 @@ public class MyTree<T> implements Iterable<T> {
     }
 
     /**
-     * Initialisation of a tree as a root and it's children
+     * Initialisation of a tree as a root and it's children.
      *
-     * @param val - value of the root
+     * @param val - value of the root.
      */
     public void createTree(T val) {
         root = this;
