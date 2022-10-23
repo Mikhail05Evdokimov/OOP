@@ -2,11 +2,16 @@ import java.util.ArrayDeque;
 import java.util.Iterator;
 import java.util.Queue;
 
-public class BFSearch<T> implements Iterator<T> {
+/**
+ * Breadth First Search iterator for my tree.
+ *
+ * @param <T> - type of elements in tree.
+ */
+public class BreadthFirstSearch<T> implements Iterator<T> {
 
     private final Queue<MyTree<T>> queue = new ArrayDeque<>();
 
-    public BFSearch(MyTree<T> root) {
+    public BreadthFirstSearch(MyTree<T> root) {
         queue.add(root);
     }
 

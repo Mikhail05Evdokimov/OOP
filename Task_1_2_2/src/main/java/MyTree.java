@@ -1,9 +1,14 @@
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class MyTree<T> implements Iterable<T>{
+/**
+ * My realisation of generic tree container with BFS and DFS iterators.
+ *
+ * @param <T> - generic type for my tree.
+ */
+public class MyTree<T> implements Iterable<T> {
     private T value;
     private MyTree<T> parent;
     public MyTree<T> root;
@@ -11,7 +16,7 @@ public class MyTree<T> implements Iterable<T>{
 
     @Override
     public Iterator<T> iterator() {
-        return new BFSearch<>(this);
+        return new BreadthFirstSearch<>(this);
     }
 
     /**
@@ -19,7 +24,7 @@ public class MyTree<T> implements Iterable<T>{
      *
      * @param val - value of the root
      */
-    public void CreateTree(T val) {
+    public void createTree(T val) {
         root = this;
         this.parent = null;
         this.value = val;
@@ -84,32 +89,38 @@ public class MyTree<T> implements Iterable<T>{
      * @return delValue - value of deleted vertex.
      */
     public T remove(MyTree<T> vertex) {
-        if(vertex.parent == null) {
+        if (vertex.parent == null) {
             return null;
         }
-        T delValue = vertex.value;
-        for(MyTree<T> i: vertex.children) {
+        for (MyTree<T> i : vertex.children) {
             i.changeParent(vertex.parent);
             vertex.parent.add(i.value);
         }
-        vertex.value = null;
         vertex.children = null;
         vertex.parent = null;
+        T delValue = vertex.value;
+        vertex.value = null;
         return delValue;
     }
 
+    /**
+     * remove function with another way of using.
+     * "vertexToDel.remove()" instead of "remove(vertexToDel)".
+     *
+     * @return - returns the value of removed vertex.
+     */
     public T remove() {
-        if(this.parent == null) {
+        if (this.parent == null) {
             return null;
         }
-        T delValue = this.value;
-        for(MyTree<T> i: this.children) {
+        for (MyTree<T> i : this.children) {
             i.changeParent(this.parent);
             this.parent.add(i.value);
         }
-        this.value = null;
         this.children = null;
         this.parent = null;
+        T delValue = this.value;
+        this.value = null;
         return delValue;
     }
 
