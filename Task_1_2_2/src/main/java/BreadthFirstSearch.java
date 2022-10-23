@@ -1,4 +1,5 @@
 import java.util.ArrayDeque;
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.Queue;
 
@@ -8,10 +9,11 @@ import java.util.Queue;
  * @param <T> - type of elements in tree.
  */
 public class BreadthFirstSearch<T> implements Iterator<T> {
-
+    private final int modCounter;
     private final Queue<MyTree<T>> queue = new ArrayDeque<>();
 
     public BreadthFirstSearch(MyTree<T> root) {
+        modCounter = root.getModificationCounter();
         queue.add(root);
     }
 
@@ -23,6 +25,9 @@ public class BreadthFirstSearch<T> implements Iterator<T> {
     @Override
     public T next() {
         MyTree<T> currentVertex = queue.remove();
+        if (modCounter != currentVertex.getModificationCounter()) {
+            throw new ConcurrentModificationException();
+        }
         queue.addAll(currentVertex.getChildren());
         return currentVertex.getValue();
     }

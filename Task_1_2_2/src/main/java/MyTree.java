@@ -13,6 +13,7 @@ public class MyTree<T> implements Iterable<T> {
     private MyTree<T> parent;
     public MyTree<T> root;
     private List<MyTree<T>> children;
+    private int modificationCounter;
 
     @Override
     public Iterator<T> iterator() {
@@ -29,6 +30,17 @@ public class MyTree<T> implements Iterable<T> {
         this.parent = null;
         this.value = val;
         this.children = new ArrayList<>();
+        modificationCounter = 0;
+    }
+
+    /**
+     * Function that return the modificationCounter of current tree.
+     * It is needed to catch errors with changing of the tree during iteration out of Iterator.
+     *
+     * @return modificationCounter - value of the counter.
+     */
+    public int getModificationCounter() {
+        return root.modificationCounter;
     }
 
     /**
@@ -73,6 +85,7 @@ public class MyTree<T> implements Iterable<T> {
      * @param childVal - value of a new vertex to add.
      */
     public MyTree<T> add(T childVal) {
+        root.modificationCounter++;
         MyTree<T> newSon = new MyTree<>();
         newSon.parent = this;
         newSon.value = childVal;
@@ -89,6 +102,7 @@ public class MyTree<T> implements Iterable<T> {
      * @return delValue - value of deleted vertex.
      */
     public T remove(MyTree<T> vertex) {
+        root.modificationCounter++;
         if (vertex.parent == null) {
             return null;
         }
@@ -110,6 +124,7 @@ public class MyTree<T> implements Iterable<T> {
      * @return - returns the value of removed vertex.
      */
     public T remove() {
+        root.modificationCounter++;
         if (this.parent == null) {
             return null;
         }

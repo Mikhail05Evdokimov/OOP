@@ -1,3 +1,4 @@
+import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 
 /**
@@ -7,10 +8,11 @@ import java.util.Iterator;
  * @param <T> - generic type of elements from tree.
  */
 public class DeepFirstSearch<T> implements Iterator<T> {
-
+    private final int modCounter;
     MyStack<MyTree<T>> stack = new MyStack<>();
 
     public DeepFirstSearch(MyTree<T> root) {
+        modCounter = root.getModificationCounter();
         stack.createStack();
         stack.push(root);
     }
@@ -23,6 +25,9 @@ public class DeepFirstSearch<T> implements Iterator<T> {
     @Override
     public T next() {
         MyTree<T> currentVertex = stack.pop();
+        if (modCounter != currentVertex.getModificationCounter()) {
+            throw new ConcurrentModificationException();
+        }
         for (MyTree<T> i : currentVertex.getChildren()) {
             stack.push(i);
         }

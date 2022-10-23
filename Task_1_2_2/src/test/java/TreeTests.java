@@ -197,4 +197,20 @@ public class TreeTests {
         Assertions.assertEquals(tree1, tree2);
     }
 
+    @Test
+    public void currentModExceptionTest() {
+        MyTree<Integer> tree1 = new MyTree<>();
+        tree1.createTree(8);
+        MyTree<Integer> tree2 = new MyTree<>();
+        tree2.createTree(1);
+        tree1.add(2);
+        tree2.add(3);
+        tree1.add(2);
+        MyTree<Integer> vert = tree2.add(3);
+        tree1.remove();
+        tree2.remove(vert);
+        int m1 = tree1.getModificationCounter();
+        int m2 = tree2.getModificationCounter();
+        Assertions.assertEquals(m1, m2);
+    }
 }
