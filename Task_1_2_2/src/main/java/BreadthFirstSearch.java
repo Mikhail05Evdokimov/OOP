@@ -14,6 +14,7 @@ public class BreadthFirstSearch<T> implements Iterator<T> {
 
     /**
      * Constructor for BFS iterator.
+     *
      * @param root - the root of the current tree.
      */
     public BreadthFirstSearch(MyTree<T> root) {

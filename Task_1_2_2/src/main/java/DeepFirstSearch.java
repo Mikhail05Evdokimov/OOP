@@ -13,6 +13,7 @@ public class DeepFirstSearch<T> implements Iterator<T> {
 
     /**
      * Constructor for DFS iterator.
+     *
      * @param root - the root of the current tree.
      */
     public DeepFirstSearch(MyTree<T> root) {
