@@ -11,6 +11,10 @@ public class DeepFirstSearch<T> implements Iterator<T> {
     private final int modCounter;
     MyStack<MyTree<T>> stack = new MyStack<>();
 
+    /**
+     * Constructor for DFS iterator.
+     * @param root - the root of the current tree.
+     */
     public DeepFirstSearch(MyTree<T> root) {
         modCounter = root.getModificationCounter();
         stack.createStack();

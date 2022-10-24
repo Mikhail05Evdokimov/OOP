@@ -12,6 +12,10 @@ public class BreadthFirstSearch<T> implements Iterator<T> {
     private final int modCounter;
     private final Queue<MyTree<T>> queue = new ArrayDeque<>();
 
+    /**
+     * Constructor for BFS iterator.
+     * @param root - the root of the current tree.
+     */
     public BreadthFirstSearch(MyTree<T> root) {
         modCounter = root.getModificationCounter();
         queue.add(root);
