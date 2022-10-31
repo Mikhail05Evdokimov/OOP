@@ -96,6 +96,23 @@ public class MyTree<T> implements Iterable<T> {
     }
 
     /**
+     * Function that add a new vertex to list of children of chosen vertex.
+     *
+     * @param childVal - value of a new vertex to add.
+     * @param parentVertex - parent for a new vertex.
+     */
+    public MyTree<T> add(MyTree<T> parentVertex, T childVal) {
+        parentVertex.root.modificationCounter++;
+        MyTree<T> newSon = new MyTree<>();
+        newSon.parent = parentVertex;
+        newSon.value = childVal;
+        newSon.children = new ArrayList<>();
+        newSon.root = parentVertex.root;
+        parentVertex.children.add(newSon);
+        return newSon;
+    }
+
+    /**
      * Function that delete current vertex.
      * It's children will be added to parent's list of children.
      *

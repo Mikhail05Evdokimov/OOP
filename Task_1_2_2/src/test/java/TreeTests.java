@@ -29,6 +29,19 @@ public class TreeTests {
     }
 
     @Test
+    public void addTest2() {
+        MyTree<Integer> tree1 = new MyTree<>();
+        tree1.createTree(1);
+        MyTree<Integer> tree2 = new MyTree<>();
+        tree2.createTree(1);
+        MyTree<Integer> vert1 = tree1.add(2);
+        MyTree<Integer> vert2 = tree2.add(2);
+        vert1.add(3);
+        tree2.add(vert2, 3);
+        Assertions.assertEquals(tree1, tree2);
+    }
+
+    @Test
     public void removeTest() {
         MyTree<Integer> tree1 = new MyTree<>();
         tree1.createTree(1);
