@@ -40,7 +40,7 @@ public class MyTree<T> implements Iterable<T> {
      * @return arr1 - array with tree's elements in iterator order.
      */
     public ArrayList<T> dfsIterator() {
-        BreadthFirstSearch<T> dfs = new BreadthFirstSearch<>(this.root);
+        DeepFirstSearch<T> dfs = new DeepFirstSearch<>(this.root);
         ArrayList<T> arr1 = new ArrayList<>();
         while (dfs.hasNext()) {
             arr1.add(dfs.next());
