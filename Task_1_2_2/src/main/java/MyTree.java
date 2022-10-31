@@ -20,11 +20,30 @@ public class MyTree<T> implements Iterable<T> {
         return new BreadthFirstSearch<>(this);
     }
 
-    public ArrayList<T> bfsIterator(MyTree<T> tree) {
-        BreadthFirstSearch<T> bfs = new BreadthFirstSearch<>(tree.root);
+    /**
+     * Method for bfs iteration of my tree.
+     *
+     * @return arr1 - array with tree's elements in iterator order.
+     */
+    public ArrayList<T> bfsIterator() {
+        BreadthFirstSearch<T> bfs = new BreadthFirstSearch<>(this.root);
         ArrayList<T> arr1 = new ArrayList<>();
         while (bfs.hasNext()) {
             arr1.add(bfs.next());
+        }
+        return arr1;
+    }
+
+    /**
+     * Method for dfs iteration of my tree.
+     *
+     * @return arr1 - array with tree's elements in iterator order.
+     */
+    public ArrayList<T> dfsIterator() {
+        BreadthFirstSearch<T> dfs = new BreadthFirstSearch<>(this.root);
+        ArrayList<T> arr1 = new ArrayList<>();
+        while (dfs.hasNext()) {
+            arr1.add(dfs.next());
         }
         return arr1;
     }

@@ -161,7 +161,7 @@ public class TreeTests {
         vert3.add(7);
         vert2.add(6);
         ArrayList<Integer> arr1;
-        arr1 = tree1.bfsIterator(tree1);
+        arr1 = tree1.bfsIterator();
         ArrayList<Integer> arr2 = new ArrayList<>();
         for (int i = 1; i < 8; i++) {
             arr2.add(i);
@@ -179,11 +179,8 @@ public class TreeTests {
         MyTree<Integer> vert3 = vert1.add(5);
         vert3.add(7);
         vert2.add(6);
-        DeepFirstSearch<Integer> dfs = new DeepFirstSearch<>(tree1.root);
-        ArrayList<Integer> arr1 = new ArrayList<>();
-        while (dfs.hasNext()) {
-            arr1.add(dfs.next());
-        }
+        ArrayList<Integer> arr1;
+        arr1 = tree1.dfsIterator();
         ArrayList<Integer> arr2 = new ArrayList<>();
         arr2.add(1);
         arr2.add(3);
