@@ -160,11 +160,8 @@ public class TreeTests {
         MyTree<Integer> vert3 = vert1.add(5);
         vert3.add(7);
         vert2.add(6);
-        BreadthFirstSearch<Integer> bfs = new BreadthFirstSearch<>(tree1.root);
-        ArrayList<Integer> arr1 = new ArrayList<>();
-        while (bfs.hasNext()) {
-            arr1.add(bfs.next());
-        }
+        ArrayList<Integer> arr1;
+        arr1 = tree1.bfsIterator(tree1);
         ArrayList<Integer> arr2 = new ArrayList<>();
         for (int i = 1; i < 8; i++) {
             arr2.add(i);

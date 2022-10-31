@@ -20,6 +20,15 @@ public class MyTree<T> implements Iterable<T> {
         return new BreadthFirstSearch<>(this);
     }
 
+    public ArrayList<T> bfsIterator(MyTree<T> tree) {
+        BreadthFirstSearch<T> bfs = new BreadthFirstSearch<>(tree.root);
+        ArrayList<T> arr1 = new ArrayList<>();
+        while (bfs.hasNext()) {
+            arr1.add(bfs.next());
+        }
+        return arr1;
+    }
+
     /**
      * Initialisation of a tree as a root and it's children.
      *
@@ -101,7 +110,7 @@ public class MyTree<T> implements Iterable<T> {
      * @param childVal - value of a new vertex to add.
      * @param parentVertex - parent for a new vertex.
      */
-    public MyTree<T> add(MyTree<T> parentVertex, T childVal) {
+    public void add(MyTree<T> parentVertex, T childVal) {
         parentVertex.root.modificationCounter++;
         MyTree<T> newSon = new MyTree<>();
         newSon.parent = parentVertex;
@@ -109,7 +118,6 @@ public class MyTree<T> implements Iterable<T> {
         newSon.children = new ArrayList<>();
         newSon.root = parentVertex.root;
         parentVertex.children.add(newSon);
-        return newSon;
     }
 
     /**
