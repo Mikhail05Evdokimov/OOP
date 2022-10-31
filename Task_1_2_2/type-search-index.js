@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"<Unnamed>","l":"BreadthFirstSearch"},{"p":"<Unnamed>","l":"DeepFirstSearch"},{"p":"<Unnamed>","l":"MyStack"},{"p":"<Unnamed>","l":"MyTree"}]
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"<Unnamed>","l":"BreadthFirstSearchIterator"},{"p":"<Unnamed>","l":"DeepFirstSearchIterator"},{"p":"<Unnamed>","l":"MyStack"},{"p":"<Unnamed>","l":"MyTree"}]
