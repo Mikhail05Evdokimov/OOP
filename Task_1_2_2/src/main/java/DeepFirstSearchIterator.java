@@ -7,7 +7,7 @@ import java.util.Iterator;
  *
  * @param <T> - generic type of elements from tree.
  */
-public class DeepFirstSearch<T> implements Iterator<T> {
+public class DeepFirstSearchIterator<T> implements Iterator<T> {
     private final int modCounter;
     MyStack<MyTree<T>> stack = new MyStack<>();
 
@@ -16,7 +16,7 @@ public class DeepFirstSearch<T> implements Iterator<T> {
      *
      * @param root - the root of the current tree.
      */
-    public DeepFirstSearch(MyTree<T> root) {
+    public DeepFirstSearchIterator(MyTree<T> root) {
         modCounter = root.getModificationCounter();
         stack.createStack();
         stack.push(root);

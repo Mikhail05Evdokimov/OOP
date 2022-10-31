@@ -17,7 +17,7 @@ public class MyTree<T> implements Iterable<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new BreadthFirstSearch<>(this);
+        return new BreadthFirstSearchIterator<>(this);
     }
 
     /**
@@ -26,7 +26,7 @@ public class MyTree<T> implements Iterable<T> {
      * @return arr1 - array with tree's elements in iterator order.
      */
     public ArrayList<T> bfsIterator() {
-        BreadthFirstSearch<T> bfs = new BreadthFirstSearch<>(this.root);
+        BreadthFirstSearchIterator<T> bfs = new BreadthFirstSearchIterator<>(this.root);
         ArrayList<T> arr1 = new ArrayList<>();
         while (bfs.hasNext()) {
             arr1.add(bfs.next());
@@ -40,7 +40,7 @@ public class MyTree<T> implements Iterable<T> {
      * @return arr1 - array with tree's elements in iterator order.
      */
     public ArrayList<T> dfsIterator() {
-        DeepFirstSearch<T> dfs = new DeepFirstSearch<>(this.root);
+        DeepFirstSearchIterator<T> dfs = new DeepFirstSearchIterator<>(this.root);
         ArrayList<T> arr1 = new ArrayList<>();
         while (dfs.hasNext()) {
             arr1.add(dfs.next());
@@ -76,7 +76,7 @@ public class MyTree<T> implements Iterable<T> {
      *
      * @param newParent - parent to set.
      */
-    public void changeParent(MyTree<T> newParent) {
+    private void changeParent(MyTree<T> newParent) {
         this.parent = newParent;
     }
 
