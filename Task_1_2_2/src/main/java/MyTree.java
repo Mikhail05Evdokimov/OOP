@@ -14,10 +14,41 @@ public class MyTree<T> implements Iterable<T> {
     public MyTree<T> root;
     private List<MyTree<T>> children;
     private int modificationCounter;
+    private boolean typeOfSearch;
+
+    /**
+     * Method for change the type of iteration.
+     *
+     * @param  type - use "BFS" to choose BreadthFirstSearchIterator
+     *              - use "DFS" to choose DeepFirstSearchIterator
+     */
+    public void setTypeIterator(String type) {
+        typeOfSearch = Objects.equals(type, "BFS");
+    }
+
+    /**
+     * Method to get current type of iterator.
+     *
+     * @return - "BFS" if it's BreadthFirstSearchIterator.
+     *         - "DFS if it's DeepFirstSearchIterator.
+     */
+    public String getTypeIterator() {
+        if (this.typeOfSearch) {
+            return "BFS";
+        }
+        else {
+            return "DFS";
+        }
+    }
 
     @Override
     public Iterator<T> iterator() {
-        return new BreadthFirstSearchIterator<>(this);
+        if (typeOfSearch) {
+            return new BreadthFirstSearchIterator<>(this);
+        }
+        else {
+            return new DeepFirstSearchIterator<>(this);
+        }
     }
 
     /**

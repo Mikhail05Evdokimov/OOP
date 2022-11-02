@@ -220,4 +220,12 @@ public class TreeTests {
         int m2 = tree2.getModificationCounter();
         Assertions.assertEquals(m1, m2);
     }
+
+    @Test
+    public void setTypeIteratorTest() {
+        MyTree<Integer> tree1 = new MyTree<>();
+        tree1.createTree(0);
+        tree1.setTypeIterator("DFS");
+        Assertions.assertEquals(tree1.getTypeIterator(), "DFS");
+    }
 }
