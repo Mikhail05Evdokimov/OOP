@@ -36,9 +36,7 @@ public class MyTree<T> implements Iterable<T> {
         if (this.typeOfSearch) {
             return "BFS";
         }
-        else {
-            return "DFS";
-        }
+        return "DFS";
     }
 
     @Override
@@ -46,9 +44,7 @@ public class MyTree<T> implements Iterable<T> {
         if (typeOfSearch) {
             return new BreadthFirstSearchIterator<>(this);
         }
-        else {
-            return new DeepFirstSearchIterator<>(this);
-        }
+        return new DeepFirstSearchIterator<>(this);
     }
 
     /**
