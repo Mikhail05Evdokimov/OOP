@@ -131,7 +131,8 @@ public class Graph<T> implements Comparable<T> {
                 if (i.getTo().getColor()) {
                     if (i.getTo().getShortestWay() == -1
                         || (i.getTo().getShortestWay() != -1
-                        && i.getTo().getShortestWay() >
+                        && i.getTo().getShortestWay()
+                        >
                         (current.getShortestWay() + i.getWeight()))) {
                         i.getTo().setShortestWay(current.getShortestWay()
                             + i.getWeight());
@@ -149,7 +150,7 @@ public class Graph<T> implements Comparable<T> {
             }
             sortedVertexes.add(j, i);
         }
-        return(sortedVertexes);
+        return sortedVertexes;
     }
 
     /**

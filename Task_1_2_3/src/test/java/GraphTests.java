@@ -66,16 +66,16 @@ public class GraphTests {
         Vertex<Integer> v3 = new Vertex<>(3);
         Vertex<Integer> v4 = new Vertex<>(4);
         Edge<Integer> e1 = new Edge<>(1, v1, v2);
-        Edge<Integer> e2 = new Edge<>(100, v1, v3);
-        Edge<Integer> e3 = new Edge<>(2, v2, v3);
-        Edge<Integer> e4 = new Edge<>(200, v2, v4);
-        Edge<Integer> e5 = new Edge<>(2, v3, v4);
-        Edge<Integer> e6 = new Edge<>(10, v4, v1);
         v1.addWay(e1);
+        Edge<Integer> e2 = new Edge<>(100, v1, v3);
         v1.addWay(e2);
+        Edge<Integer> e3 = new Edge<>(2, v2, v3);
         v2.addWay(e3);
+        Edge<Integer> e4 = new Edge<>(200, v2, v4);
         v2.addWay(e4);
+        Edge<Integer> e5 = new Edge<>(2, v3, v4);
         v3.addWay(e5);
+        Edge<Integer> e6 = new Edge<>(10, v4, v1);
         v4.addWay(e6);
         List<Vertex<Integer>> vertexesList = new ArrayList<>();
         vertexesList.add(v1);
@@ -85,7 +85,7 @@ public class GraphTests {
         Graph<Integer> graph = new Graph<>(vertexesList);
         List<Vertex<Integer>> sorted = graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5};
-        for (int i = 1; i < 5; i++){
+        for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
         for (Vertex<Integer> i : sorted) {
@@ -103,9 +103,9 @@ public class GraphTests {
     public void setValueTest() {
         Integer[] vertexes = {1, 2, 3, 4};
         int[][] matrix = {{0, 1, 100, 0},
-                        {0, 0, 2, 200},
-                        {0, 0, 0, 2},
-                        {10, 0, 0, 0}};
+                          {0, 0, 2, 200},
+                          {0, 0, 0, 2},
+                          {10, 0, 0, 0}};
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         graph.vertexArray.get(1).setValue(11);
         Assertions.assertEquals(graph.vertexArray.get(1).getValue(), 11);
@@ -118,9 +118,9 @@ public class GraphTests {
     public void getFromTest() {
         Integer[] vertexes = {1, 2, 3, 4};
         int[][] matrix = {{0, 1, 100, 0},
-                         {0, 0, 2, 200},
-                        {0, 0, 0, 2},
-                        {10, 0, 0, 0}};
+                          {0, 0, 2, 200},
+                          {0, 0, 0, 2},
+                          {10, 0, 0, 0}};
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         Vertex<Integer> v1 = graph.edgesArray.get(1).getFrom();
         Assertions.assertEquals(graph.vertexArray.get(1), v1);
@@ -133,14 +133,14 @@ public class GraphTests {
     public void setWeightTest() {
         Integer[] vertexes = {1, 2, 3, 4};
         int[][] matrix = {{0, 1, 100, 0},
-            {0, 0, 2, 200},
-            {0, 0, 0, 2},
-            {10, 0, 0, 0}};
+                          {0, 0, 2, 200},
+                          {0, 0, 0, 2},
+                          {10, 0, 0, 0}};
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         graph.edgesArray.get(4).setWeight(4);
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 7};
-        for (int i = 1; i < 5; i++){
+        for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
@@ -152,16 +152,16 @@ public class GraphTests {
     public void addVertexTest() {
         Integer[] vertexes = {1, 2, 3, 4};
         int[][] matrix = {{0, 1, 100, 0},
-            {0, 0, 2, 200},
-            {0, 0, 0, 2},
-            {10, 0, 0, 0}};
+                          {0, 0, 2, 200},
+                          {0, 0, 0, 2},
+                          {10, 0, 0, 0}};
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         graph.addVertex(5);
         Vertex<Integer> v6 = new Vertex<>(6);
         graph.addVertex(v6);
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5, -1, -1};
-        for (int i = 1; i < 7; i++){
+        for (int i = 1; i < 7; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
@@ -173,15 +173,15 @@ public class GraphTests {
     public void addEdgeTest() {
         Integer[] vertexes = {1, 2, 3, 4};
         int[][] matrix = {{0, 1, 100, 0},
-            {0, 0, 2, 200},
-            {0, 0, 0, 0},
-            {10, 0, 0, 0}};
+                          {0, 0, 2, 200},
+                          {0, 0, 0, 0},
+                          {10, 0, 0, 0}};
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         Edge<Integer> e5 = new Edge<>(2);
         graph.addEdge(5, e5, 3, 4);
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5};
-        for (int i = 1; i < 5; i++){
+        for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
@@ -193,16 +193,16 @@ public class GraphTests {
     public void removeEdgeTest1() {
         Integer[] vertexes = {1, 2, 3, 4};
         int[][] matrix = {{0, 1, 100, 0},
-            {0, 0, 2, 200},
-            {0, 0, 0, 0},
-            {10, 0, 0, 0}};
+                          {0, 0, 2, 200},
+                          {0, 0, 0, 0},
+                          {10, 0, 0, 0}};
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         Edge<Integer> e5 = new Edge<>(2);
         graph.addEdge(5, e5, 3, 4);
         graph.removeEdge(e5);
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 201};
-        for (int i = 1; i < 5; i++){
+        for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
@@ -214,16 +214,16 @@ public class GraphTests {
     public void removeEdgeTest2() {
         Integer[] vertexes = {1, 2, 3, 4};
         int[][] matrix = {{0, 1, 100, 0},
-            {0, 0, 2, 200},
-            {0, 0, 0, 0},
-            {10, 0, 0, 0}};
+                          {0, 0, 2, 200},
+                          {0, 0, 0, 0},
+                          {10, 0, 0, 0}};
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         Edge<Integer> e5 = new Edge<>(2);
         graph.addEdge(5, e5, 3, 4);
         graph.removeEdge(5);
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 201};
-        for (int i = 1; i < 5; i++){
+        for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
@@ -235,15 +235,15 @@ public class GraphTests {
     public void removeVertexTest() {
         Integer[] vertexes = {1, 2, 3, 4};
         int[][] matrix = {{0, 1, 100, 0},
-            {0, 0, 2, 200},
-            {0, 0, 0, 2},
-            {10, 0, 0, 0}};
+                          {0, 0, 2, 200},
+                          {0, 0, 0, 2},
+                          {10, 0, 0, 0}};
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         graph.removeVertex(3);
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 201};
         int cnt = 0;
-        for (Vertex<Integer> i : graph.vertexArray.values()){
+        for (Vertex<Integer> i : graph.vertexArray.values()) {
             Assertions.assertEquals(i.getShortestWay(), arr[cnt]);
             cnt++;
         }
