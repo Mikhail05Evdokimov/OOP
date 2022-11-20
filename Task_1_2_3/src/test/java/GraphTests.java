@@ -64,13 +64,13 @@ public class GraphTests {
         Vertex<Integer> v1 = new Vertex<>(1);
         Vertex<Integer> v2 = new Vertex<>(2);
         Vertex<Integer> v3 = new Vertex<>(3);
-        Vertex<Integer> v4 = new Vertex<>(4);
         Edge<Integer> e1 = new Edge<>(1, v1, v2);
         v1.addWay(e1);
         Edge<Integer> e2 = new Edge<>(100, v1, v3);
         v1.addWay(e2);
         Edge<Integer> e3 = new Edge<>(2, v2, v3);
         v2.addWay(e3);
+        Vertex<Integer> v4 = new Vertex<>(4);
         Edge<Integer> e4 = new Edge<>(200, v2, v4);
         v2.addWay(e4);
         Edge<Integer> e5 = new Edge<>(2, v3, v4);

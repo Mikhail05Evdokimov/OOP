@@ -75,7 +75,7 @@ public class Vertex<T> {
      * Vertex's color getter.
      *
      * @return color of current vertex.
-     * Returns true if we didn't invite this vertex yet, else returns false.
+     *  Returns true if we didn't invite this vertex yet, else returns false.
      */
     public boolean getColor() {
         return color;
