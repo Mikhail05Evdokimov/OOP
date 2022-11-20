@@ -235,7 +235,8 @@ implements java.lang.Comparable&lt;T&gt;</pre>
        <a href="Graph.html" title="type parameter in Graph">T</a>&nbsp;from,
        <a href="Graph.html" title="type parameter in Graph">T</a>&nbsp;to)</code></th>
 <td class="colLast">
-<div class="block">Adds a new edge to graph using its key(it must be a free edge's number), object link and keys of incident vertexes.</div>
+<div class="block">Adds a new edge to graph using its key
+ (it must be a free edge's number), object link and keys of incident vertexes.</div>
 </td>
 </tr>
 <tr id="i1" class="rowColor">
@@ -282,7 +283,8 @@ implements java.lang.Comparable&lt;T&gt;</pre>
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#removeVertex(T)">removeVertex</a></span>&#8203;(<a href="Graph.html" title="type parameter in Graph">T</a>&nbsp;key)</code></th>
 <td class="colLast">
-<div class="block">Removes vertex from graph by its key and removes it's TO edges from other's vertexes ways lists.</div>
+<div class="block">Removes vertex from graph by its key and removes
+ it's TO edges from other's vertexes ways lists.</div>
 </td>
 </tr>
 </table>
@@ -416,7 +418,8 @@ implements java.lang.Comparable&lt;T&gt;</pre>
 <h4>deykstraAlgorithm</h4>
 <pre class="methodSignature">public&nbsp;java.util.List&lt;<a href="Vertex.html" title="class in &lt;Unnamed&gt;">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">T</a>&gt;&gt;&nbsp;deykstraAlgorithm&#8203;(<a href="Vertex.html" title="class in &lt;Unnamed&gt;">Vertex</a>&lt;<a href="Graph.html" title="type parameter in Graph">T</a>&gt;&nbsp;start)</pre>
 <div class="block">Deykstra algorithm for searching shortest ways from start vertex to others.
- It uses BFS and compare the shortest way of current vertex with ways of current vertex's neighbors and choose the best one.</div>
+ It uses BFS and compare the shortest way of current vertex
+ with ways of current vertex's neighbors and choose the best one.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>start</code> - - start vertex.</dd>
@@ -464,7 +467,8 @@ implements java.lang.Comparable&lt;T&gt;</pre>
 <li class="blockList">
 <h4>removeVertex</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;removeVertex&#8203;(<a href="Graph.html" title="type parameter in Graph">T</a>&nbsp;key)</pre>
-<div class="block">Removes vertex from graph by its key and removes it's TO edges from other's vertexes ways lists.</div>
+<div class="block">Removes vertex from graph by its key and removes
+ it's TO edges from other's vertexes ways lists.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - - key of vertex to delete.</dd>
@@ -483,10 +487,12 @@ implements java.lang.Comparable&lt;T&gt;</pre>
                     <a href="Edge.html" title="class in &lt;Unnamed&gt;">Edge</a>&lt;<a href="Graph.html" title="type parameter in Graph">T</a>&gt;&nbsp;edge,
                     <a href="Graph.html" title="type parameter in Graph">T</a>&nbsp;from,
                     <a href="Graph.html" title="type parameter in Graph">T</a>&nbsp;to)</pre>
-<div class="block">Adds a new edge to graph using its key(it must be a free edge's number), object link and keys of incident vertexes.</div>
+<div class="block">Adds a new edge to graph using its key
+ (it must be a free edge's number), object link and keys of incident vertexes.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
-<dd><code>key</code> - - number of a new edge. (User can use graph.eArray.size() to know the closest free number).</dd>
+<dd><code>key</code> - - number of a new edge.
+            (User can use graph.eArray.size() to know the closest free number).</dd>
 <dd><code>edge</code> - - edge to add.</dd>
 <dd><code>from</code> - - From vertex's key.</dd>
 <dd><code>to</code> - - To vertex's key.</dd>
