@@ -14,7 +14,8 @@ public class Vertex<T> {
     private boolean color;
 
     /**
-     * Constructor for vertex as its value, white(false) color, infinity the shortest way and list of incident edges.
+     * Constructor for vertex as its value, white(false) color,
+     * infinity the shortest way and list of incident edges.
      *
      * @param value - vertex's start value and its key in HashMap.
      */
@@ -73,7 +74,8 @@ public class Vertex<T> {
     /**
      * Vertex's color getter.
      *
-     * @return color of current vertex. Returns true if we didn't invite this vertex yet, else returns false.
+     * @return color of current vertex.
+     * Returns true if we didn't invite this vertex yet, else returns false.
      */
     public boolean getColor() {
         return color;

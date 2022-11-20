@@ -56,7 +56,8 @@ public class Graph<T> implements Comparable<T> {
             for (int j : waysMatrix[i]) {
                 if (j != 0 && i != x) {
                     edgesArray.put(edgesCnt,
-                        new Edge<>(j, vertexArray.get(arrayOfValues[i]), vertexArray.get(arrayOfValues[x])));
+                        new Edge<>(j, vertexArray.get(arrayOfValues[i]),
+                            vertexArray.get(arrayOfValues[x])));
                     vertexArray.get(arrayOfValues[i]).addWay(edgesArray.get(edgesCnt));
                     edgesCnt++;
                 }
@@ -102,7 +103,7 @@ public class Graph<T> implements Comparable<T> {
                         vertexArray.get(arrayOfValues[toBuff])));
                 vertexArray.get(arrayOfValues[fromBuff]).addWay(edgesArray.get(i));
             } else {
-               System.out.println("Warning: There is a vertex from void to void");
+                System.out.println("Warning: There is a vertex from void to void");
             }
         }
     }
@@ -117,10 +118,10 @@ public class Graph<T> implements Comparable<T> {
      */
     public List<Vertex<T>> deykstraAlgorithm(Vertex<T> start) {
         for (Vertex<T> i : vertexArray.values()) {
-          i.setShortestWay(-1);
-          i.setColor(true);
-         }
-         start.setShortestWay(0);
+            i.setShortestWay(-1);
+            i.setColor(true);
+        }
+        start.setShortestWay(0);
         Queue<Vertex<T>> queue = new ArrayDeque<>();
         queue.add(start);
         while (!(queue.isEmpty())) {
@@ -130,8 +131,10 @@ public class Graph<T> implements Comparable<T> {
                 if (i.getTo().getColor()) {
                     if (i.getTo().getShortestWay() == -1
                         || (i.getTo().getShortestWay() != -1
-                        && i.getTo().getShortestWay() > (current.getShortestWay() + i.getWeight()))) {
-                        i.getTo().setShortestWay(current.getShortestWay() + i.getWeight());
+                        && i.getTo().getShortestWay() >
+                        (current.getShortestWay() + i.getWeight()))) {
+                        i.getTo().setShortestWay(current.getShortestWay()
+                            + i.getWeight());
                     }
                     queue.add(i.getTo());
                 }
@@ -197,7 +200,7 @@ public class Graph<T> implements Comparable<T> {
     public void addEdge(Integer key, Edge<T> edge, T from, T to) {
         edge.setFrom(this.vertexArray.get(from));
         edge.setTo(this.vertexArray.get(to));
-        this.edgesArray.put(key,edge);
+        this.edgesArray.put(key, edge);
         this.vertexArray.get(from).addWay(edge);
     }
 

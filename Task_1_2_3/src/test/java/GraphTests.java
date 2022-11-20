@@ -1,7 +1,7 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Testing module for my Graph realization.
@@ -30,8 +30,8 @@ public class GraphTests {
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5};
-        for (int i = 1; i < 5; i++){
-            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i-1]);
+        for (int i = 1; i < 5; i++) {
+            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
 
@@ -43,16 +43,16 @@ public class GraphTests {
         Integer[] vertexes = {1, 2, 3, 4};
         int[] edges = {1, 100, 2, 200, 2, 10};
         int[][] matrix = {{-1, 1, 0, 0},
-                        {-1, 0, 1, 0},
-                        {0, -1, 1, 0},
-                        {0, -1, 0, 1},
-                        {0, 0, -1, 1},
-                        {1, 0, 0, -1}};
+                          {-1, 0, 1, 0},
+                          {0, -1, 1, 0},
+                          {0, -1, 0, 1},
+                          {0, 0, -1, 1},
+                          {1, 0, 0, -1}};
         Graph<Integer> graph = new Graph<>(vertexes, edges, matrix);
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5};
-        for (int i = 1; i < 5; i++){
-            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i-1]);
+        for (int i = 1; i < 5; i++) {
+            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
 
@@ -86,7 +86,7 @@ public class GraphTests {
         List<Vertex<Integer>> sorted = graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5};
         for (int i = 1; i < 5; i++){
-            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i-1]);
+            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
         for (Vertex<Integer> i : sorted) {
             System.out.print(i.getValue());
@@ -141,7 +141,7 @@ public class GraphTests {
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 7};
         for (int i = 1; i < 5; i++){
-            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i-1]);
+            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
 
@@ -162,7 +162,7 @@ public class GraphTests {
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5, -1, -1};
         for (int i = 1; i < 7; i++){
-            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i-1]);
+            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
 
@@ -182,7 +182,7 @@ public class GraphTests {
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5};
         for (int i = 1; i < 5; i++){
-            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i-1]);
+            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
 
@@ -203,7 +203,7 @@ public class GraphTests {
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 201};
         for (int i = 1; i < 5; i++){
-            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i-1]);
+            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
 
@@ -224,7 +224,7 @@ public class GraphTests {
         graph.deykstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 201};
         for (int i = 1; i < 5; i++){
-            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i-1]);
+            Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
         }
     }
 
