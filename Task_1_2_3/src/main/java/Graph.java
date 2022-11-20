@@ -1,28 +1,35 @@
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Queue;
 
 /**
- * Generic class Graph which support three methods of initialisation and can be sorted by DeykstraAlgorithm.
+ * Generic class Graph which support three methods of initialisation
+ * and can be sorted by DeykstraAlgorithm.
  *
  * @param <T> - type of vertex's value and HashMap key.
  */
 public class Graph<T> implements Comparable<T> {
-    public final Map<T, Vertex<T>> vArray;
-    public final Map<Integer, Edge<T>> eArray;
+    public final Map<T, Vertex<T>> vertexArray;
+    public final Map<Integer, Edge<T>> edgesArray;
 
     /**
-     * Graph constructor which works with a List of Vertexes (each vertex has to know it's FROM edges).
+     * Graph constructor which works with a List of Vertexes
+     * (each vertex has to know it's FROM edges).
      *
      * @param vertexes - List of vertexes.
      */
     public Graph(List<Vertex<T>> vertexes) {
-        this.vArray = new HashMap<>();
-        this.eArray = new HashMap<>();
-        int eCnt = 0;
-        for(Vertex<T> i : vertexes) {
-            vArray.put(i.getValue(), i);
-            for(Edge<T> j : i.getWays()) {
-                eArray.put(eCnt, j);
-                eCnt++;
+        this.vertexArray = new HashMap<>();
+        this.edgesArray = new HashMap<>();
+        int edgesCnt = 0;
+        for (Vertex<T> i : vertexes) {
+            vertexArray.put(i.getValue(), i);
+            for (Edge<T> j : i.getWays()) {
+                edgesArray.put(edgesCnt, j);
+                edgesCnt++;
             }
         }
     }
@@ -38,18 +45,18 @@ public class Graph<T> implements Comparable<T> {
      * @param waysMatrix - double array of ways between vertexes.
      */
     public Graph(T[] arrayOfValues, int[][] waysMatrix) {
-        vArray = new HashMap<>();
-        eArray = new HashMap<>();
+        vertexArray = new HashMap<>();
+        edgesArray = new HashMap<>();
         for (T i : arrayOfValues) {
-            vArray.put(i, new Vertex<>(i));
+            vertexArray.put(i, new Vertex<>(i));
         }
         int eCnt = 0;
         for (int i = 0; i < waysMatrix.length; i++) {
             int x = 0;
             for (int j : waysMatrix[i]) {
                 if (j != 0 && i != x) {
-                    eArray.put(eCnt, new Edge<>(j, vArray.get(arrayOfValues[i]), vArray.get(arrayOfValues[x])));
-                    vArray.get(arrayOfValues[i]).addWay(eArray.get(eCnt));
+                    edgesArray.put(eCnt, new Edge<>(j, vertexArray.get(arrayOfValues[i]), vertexArray.get(arrayOfValues[x])));
+                    vertexArray.get(arrayOfValues[i]).addWay(edgesArray.get(eCnt));
                     eCnt++;
                 }
                 x++;
@@ -69,10 +76,10 @@ public class Graph<T> implements Comparable<T> {
      * @param waysMatrix - double array of connections between vertexes and edges.
      */
     public Graph(T[] arrayOfValues, int[] arrayOfWeights, int[][] waysMatrix) {
-        vArray = new HashMap<>();
-        eArray = new HashMap<>();
+        vertexArray = new HashMap<>();
+        edgesArray = new HashMap<>();
         for (T i : arrayOfValues) {
-            vArray.put(i, new Vertex<>(i));
+            vertexArray.put(i, new Vertex<>(i));
         }
 
         for (int i = 0; i < waysMatrix.length; i++) {
@@ -87,9 +94,9 @@ public class Graph<T> implements Comparable<T> {
                     }
                 }
             }
-            if(fromBuff != 0 || toBuff != 0) {
-                eArray.put(i, new Edge<>(arrayOfWeights[i], vArray.get(arrayOfValues[fromBuff]), vArray.get(arrayOfValues[toBuff])));
-                vArray.get(arrayOfValues[fromBuff]).addWay(eArray.get(i));
+            if (fromBuff != 0 || toBuff != 0) {
+                edgesArray.put(i, new Edge<>(arrayOfWeights[i], vertexArray.get(arrayOfValues[fromBuff]), vertexArray.get(arrayOfValues[toBuff])));
+                vertexArray.get(arrayOfValues[fromBuff]).addWay(edgesArray.get(i));
             }
             else {
                System.out.println("Warning: There is a vertex from void to void");
@@ -105,7 +112,7 @@ public class Graph<T> implements Comparable<T> {
      * @return - sorted list of vertexes in order from short way to long way.
      */
     public List<Vertex<T>> deykstraAlgorithm(Vertex<T> start){
-        for (Vertex<T> i : vArray.values()) {
+        for (Vertex<T> i : vertexArray.values()) {
           i.setShortestWay(-1);
           i.setColor(true);
          }
@@ -125,9 +132,9 @@ public class Graph<T> implements Comparable<T> {
             }
         }
         List<Vertex<T>> sortedVertexes = new ArrayList<>();
-        for(Vertex<T> i : vArray.values()) {
+        for (Vertex<T> i : vertexArray.values()) {
             int j = 0;
-            while(j < sortedVertexes.size() && i.getShortestWay() > sortedVertexes.get(j).getShortestWay()) {
+            while (j < sortedVertexes.size() && i.getShortestWay() > sortedVertexes.get(j).getShortestWay()) {
                 j++;
             }
             sortedVertexes.add(j, i);
@@ -141,7 +148,7 @@ public class Graph<T> implements Comparable<T> {
      * @param vertex - new vertex to add.
      */
     public void addVertex(Vertex<T> vertex) {
-        this.vArray.put(vertex.getValue(), vertex);
+        this.vertexArray.put(vertex.getValue(), vertex);
     }
 
     /**
@@ -151,7 +158,7 @@ public class Graph<T> implements Comparable<T> {
      */
     public void addVertex(T value) {
         Vertex<T> vertex = new Vertex<>(value);
-        this.vArray.put(vertex.getValue(), vertex);
+        this.vertexArray.put(vertex.getValue(), vertex);
     }
 
     /**
@@ -160,13 +167,13 @@ public class Graph<T> implements Comparable<T> {
      * @param key - key of vertex to delete.
      */
     public void removeVertex(T key) {
-        for (Edge<T> i : this.eArray.values()) {
-            if(i.getTo() == this.vArray.get(key)) {
+        for (Edge<T> i : this.edgesArray.values()) {
+            if (i.getTo() == this.vertexArray.get(key)) {
                 i.getFrom().getWays().remove(i);
             }
         }
-        this.vArray.get(key).getWays().clear();
-        this.vArray.remove(key);
+        this.vertexArray.get(key).getWays().clear();
+        this.vertexArray.remove(key);
     }
 
     /**
@@ -178,10 +185,10 @@ public class Graph<T> implements Comparable<T> {
      * @param to - To vertex's key.
      */
     public void addEdge(Integer key, Edge<T> edge, T from, T to) {
-        edge.setFrom(this.vArray.get(from));
-        edge.setTo(this.vArray.get(to));
-        this.eArray.put(key,edge);
-        this.vArray.get(from).addWay(edge);
+        edge.setFrom(this.vertexArray.get(from));
+        edge.setTo(this.vertexArray.get(to));
+        this.edgesArray.put(key,edge);
+        this.vertexArray.get(from).addWay(edge);
     }
 
     /**
@@ -190,8 +197,8 @@ public class Graph<T> implements Comparable<T> {
      * @param key - edge's key.
      */
     public void removeEdge(T key) {
-        this.eArray.get(key).getFrom().getWays().remove(eArray.get(key));
-        this.eArray.remove(key);
+        this.edgesArray.get(key).getFrom().getWays().remove(edgesArray.get(key));
+        this.edgesArray.remove(key);
     }
 
     /**
@@ -201,7 +208,7 @@ public class Graph<T> implements Comparable<T> {
      */
     public void removeEdge(Edge<T> edge) {
         edge.getFrom().getWays().remove(edge);
-        this.eArray.values().remove(edge);
+        this.edgesArray.values().remove(edge);
     }
 
     @Override
