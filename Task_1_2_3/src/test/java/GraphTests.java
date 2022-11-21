@@ -28,7 +28,7 @@ public class GraphTests {
             {0, 0, 0, 2},
             {10, 0, 0, 0}};
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
-        graph.deykstraAlgorithm(graph.vertexArray.get(1));
+        graph.dijkstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5};
         for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
@@ -49,7 +49,7 @@ public class GraphTests {
                           {0, 0, -1, 1},
                           {1, 0, 0, -1}};
         Graph<Integer> graph = new Graph<>(vertexes, edges, matrix);
-        graph.deykstraAlgorithm(graph.vertexArray.get(1));
+        graph.dijkstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5};
         for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
@@ -83,7 +83,7 @@ public class GraphTests {
         vertexesList.add(v3);
         vertexesList.add(v4);
         Graph<Integer> graph = new Graph<>(vertexesList);
-        List<Vertex<Integer>> sorted = graph.deykstraAlgorithm(graph.vertexArray.get(1));
+        List<Vertex<Integer>> sorted = graph.dijkstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5};
         for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
@@ -138,7 +138,7 @@ public class GraphTests {
                           {10, 0, 0, 0}};
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         graph.edgesArray.get(4).setWeight(4);
-        graph.deykstraAlgorithm(graph.vertexArray.get(1));
+        graph.dijkstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 7};
         for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
@@ -159,7 +159,7 @@ public class GraphTests {
         graph.addVertex(5);
         Vertex<Integer> v6 = new Vertex<>(6);
         graph.addVertex(v6);
-        graph.deykstraAlgorithm(graph.vertexArray.get(1));
+        graph.dijkstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5, -1, -1};
         for (int i = 1; i < 7; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
@@ -179,7 +179,7 @@ public class GraphTests {
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         Edge<Integer> e5 = new Edge<>(2);
         graph.addEdge(5, e5, 3, 4);
-        graph.deykstraAlgorithm(graph.vertexArray.get(1));
+        graph.dijkstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 5};
         for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
@@ -200,7 +200,7 @@ public class GraphTests {
         Edge<Integer> e5 = new Edge<>(2);
         graph.addEdge(5, e5, 3, 4);
         graph.removeEdge(e5);
-        graph.deykstraAlgorithm(graph.vertexArray.get(1));
+        graph.dijkstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 201};
         for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
@@ -221,7 +221,7 @@ public class GraphTests {
         Edge<Integer> e5 = new Edge<>(2);
         graph.addEdge(5, e5, 3, 4);
         graph.removeEdge(5);
-        graph.deykstraAlgorithm(graph.vertexArray.get(1));
+        graph.dijkstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 3, 201};
         for (int i = 1; i < 5; i++) {
             Assertions.assertEquals(graph.vertexArray.get(i).getShortestWay(), arr[i - 1]);
@@ -240,7 +240,7 @@ public class GraphTests {
                           {10, 0, 0, 0}};
         Graph<Integer> graph = new Graph<>(vertexes, matrix);
         graph.removeVertex(3);
-        graph.deykstraAlgorithm(graph.vertexArray.get(1));
+        graph.dijkstraAlgorithm(graph.vertexArray.get(1));
         int[] arr = {0, 1, 201};
         int cnt = 0;
         for (Vertex<Integer> i : graph.vertexArray.values()) {

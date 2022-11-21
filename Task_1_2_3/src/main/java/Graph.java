@@ -116,7 +116,7 @@ public class Graph<T> implements Comparable<T> {
      * @param start - start vertex.
      * @return - sorted list of vertexes in order from short way to long way.
      */
-    public List<Vertex<T>> deykstraAlgorithm(Vertex<T> start) {
+    public List<Vertex<T>> dijkstraAlgorithm(Vertex<T> start) {
         for (Vertex<T> i : vertexArray.values()) {
             i.setShortestWay(-1);
             i.setColor(true);
