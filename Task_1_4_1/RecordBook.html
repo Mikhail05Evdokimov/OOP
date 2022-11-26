@@ -210,7 +210,9 @@ extends java.lang.Object</pre>
 <tr id="i4" class="altColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getMark(java.lang.String)">getMark</a></span>&#8203;(java.lang.String&nbsp;subject)</code></th>
-<td class="colLast">&nbsp;</td>
+<td class="colLast">
+<div class="block">Getter for a mark in current semester.</div>
+</td>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
@@ -452,9 +454,14 @@ extends java.lang.Object</pre>
 <h4>getMark</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;getMark&#8203;(java.lang.String&nbsp;subject)
             throws java.lang.Exception</pre>
+<div class="block">Getter for a mark in current semester.</div>
 <dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>subject</code> - - subject to get a mark.</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>mark value in selected subject.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code></dd>
+<dd><code>java.lang.Exception</code> - if student doesn't have a mark in this subject.</dd>
 </dl>
 </li>
 </ul>
@@ -516,8 +523,7 @@ extends java.lang.Object</pre>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if it's possible, else returns false.</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code> - if student doesn't have a diploma work mark
- or hasn't finished a learning yet.</dd>
+<dd><code>java.lang.Exception</code> - if student doesn't have a diploma work mark or hasn't finished learning.</dd>
 </dl>
 </li>
 </ul>
