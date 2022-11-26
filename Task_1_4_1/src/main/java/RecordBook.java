@@ -14,6 +14,10 @@ public class RecordBook {
     private int semesterNumber;
     private final Map<Integer, Marks> semesters;
 
+    /**
+     * Constructor for RecordBook class.
+     * @param name - student's name.
+     */
     public RecordBook(String name) {
         this.name = name;
         this.diplomaWorkMark = 0;
@@ -22,14 +26,30 @@ public class RecordBook {
         this.semesters.put(semesterNumber, new Marks());
     }
 
+    /**
+     * Name getter.
+     *
+     * @return student's name.
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Name setter.
+     *
+     * @param newName - new student's name.
+     */
     public void setName(String newName) {
         this.name = newName;
     }
 
+    /**
+     * Setter for DiplomaWorkMark.
+     *
+     * @param newMark - new value of Diploma Work Mark.
+     * @throws Exception in case of incorrect input value.
+     */
     public void setDiplomaWorkMark(int newMark) throws Exception {
         if (newMark >= 2 && newMark <= 5) {
             this.diplomaWorkMark = newMark;
@@ -38,10 +58,21 @@ public class RecordBook {
         }
     }
 
+    /**
+     * Getter for DiplomaWorkMark.
+     *
+     * @return the value of Diploma Work Mark.
+     */
     public int getDiplomaWorkMark() {
         return diplomaWorkMark;
     }
 
+    /**
+     * Semester number setter.
+     *
+     * @param semesterNumber - desired semester number.
+     * @throws Exception in case of incorrect input value.
+     */
     public void setSemesterNumber(int semesterNumber) throws Exception {
         if (semesterNumber > 0 && semesterNumber <= 8) {
             this.semesters.computeIfAbsent(semesterNumber, k -> new Marks());
@@ -51,6 +82,11 @@ public class RecordBook {
         }
     }
 
+    /**
+     * Semester number getter.
+     *
+     * @return current semester number.
+     */
     public int getSemesterNumber() {
         return this.semesterNumber;
     }
@@ -60,8 +96,7 @@ public class RecordBook {
      *
      * @param subject - subject name.
      * @param mark - mark for this subject.
-     * @throws Exception in case of incorrect mark value or
-     * if this subject has already had a mark.
+     * @throws Exception in case of incorrect mark value or if the subject has already had a mark.
      */
     public void addMark(String subject, int mark) throws Exception {
         if (mark >= 2 && mark <= 5) {
@@ -82,8 +117,7 @@ public class RecordBook {
      *
      * @param subject - subject to change a mark.
      * @param newMark - new mark value.
-     * @throws Exception in case of incorrect mark value or
-     * if this subject doesn't have a mark yet.
+     * @throws Exception in case of incorrect mark value or if the subject doesn't have a mark yet.
      */
     public void changeMark(String subject, int newMark) throws Exception {
         if (newMark >= 2 && newMark <= 5) {
@@ -100,7 +134,7 @@ public class RecordBook {
     }
 
     public int getMark(String subject) throws Exception {
-        if(this.semesters.get(semesterNumber).marks.get(subject) != null) {
+        if (this.semesters.get(semesterNumber).marks.get(subject) != null) {
             return this.semesters.get(semesterNumber).marks.get(subject);
         } else {
             System.out.println("If you want to add a mark, use addMark() method.");
@@ -116,7 +150,7 @@ public class RecordBook {
      * @throws Exception if student doesn't have a mark in this subject.
      */
     public void deleteMark(String subject) throws Exception {
-        if(this.semesters.get(semesterNumber).marks.get(subject) == null) {
+        if (this.semesters.get(semesterNumber).marks.get(subject) == null) {
             throw new Exception("Student hasn't got a mark in this subject.");
         }
         this.semesters.get(semesterNumber).marks.remove(subject);
@@ -184,8 +218,8 @@ public class RecordBook {
         }
         for (Marks i : semesters.values()) {
             if (i.marks.isEmpty()) {
-                throw new Exception("It is too early to calculate the grade " +
-                    "diploma mark. Student hasn't finished the last semester.");
+                throw new Exception("It is too early to calculate the grade "
+                    + "diploma mark. Student hasn't finished the last semester.");
             }
         }
         if (diplomaWorkMark < 5) {

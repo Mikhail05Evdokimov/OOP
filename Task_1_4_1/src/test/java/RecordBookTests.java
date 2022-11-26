@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Testing module for my Record Book realisation.
+ */
 public class RecordBookTests {
 
     @Test
