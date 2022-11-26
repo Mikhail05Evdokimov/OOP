@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="RecordBookTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-26T06:24:49" hostname="VL-NB-03" time="0.085">
+  <properties/>
+  <testcase name="badDiplomaMarkTest2()" classname="RecordBookTests" time="0.085"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
