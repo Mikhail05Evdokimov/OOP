@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Class record book which stores information about student:
  * Student's name, diploma work mark and semester grades
- * as Map <semester number, Marks>.
+ * as Map (semester number, Marks).
  */
 public class RecordBook {
     private String name;
