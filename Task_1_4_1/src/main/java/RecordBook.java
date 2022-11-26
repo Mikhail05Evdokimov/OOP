@@ -16,6 +16,7 @@ public class RecordBook {
 
     /**
      * Constructor for RecordBook class.
+     *
      * @param name - student's name.
      */
     public RecordBook(String name) {
@@ -133,6 +134,13 @@ public class RecordBook {
         }
     }
 
+    /**
+     * Getter for a mark in current semester.
+     *
+     * @param subject - subject to get a mark.
+     * @return mark value in selected subject.
+     * @throws Exception if student doesn't have a mark in this subject.
+     */
     public int getMark(String subject) throws Exception {
         if (this.semesters.get(semesterNumber).marks.get(subject) != null) {
             return this.semesters.get(semesterNumber).marks.get(subject);
@@ -209,8 +217,7 @@ public class RecordBook {
      * Count the ability of getting red diploma.
      *
      * @return true if it's possible, else returns false.
-     * @throws Exception if student doesn't have a diploma work mark
-     * or hasn't finished a learning yet.
+     * @throws Exception if student doesn't have a diploma work mark or hasn't finished learning.
      */
     public boolean redDiplomaCheck() throws Exception {
         if (diplomaWorkMark == 0) {
