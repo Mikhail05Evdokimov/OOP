@@ -26,8 +26,8 @@ public class Edge<T> {
     */
     public Edge(int weight) {
         this.weight = weight;
-        this.to = null;
-        this.from = null;
+        to = null;
+        from = null;
     }
 
     /**
@@ -45,7 +45,7 @@ public class Edge<T> {
      * @param vertex - new From vertex.
      */
     public void setFrom(Vertex<T> vertex) {
-        this.from = vertex;
+        from = vertex;
     }
 
     /**
@@ -54,7 +54,7 @@ public class Edge<T> {
      * @param vertex - new To vertex.
      */
     public void setTo(Vertex<T> vertex) {
-        this.to = vertex;
+        to = vertex;
     }
 
     /**

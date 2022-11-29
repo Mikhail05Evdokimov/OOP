@@ -20,10 +20,10 @@ public class Vertex<T> {
      * @param value - vertex's start value and its key in HashMap.
      */
     public Vertex(T value) {
-        this.color = true;
+        color = true;
         this.value = value;
-        this.shortestWay = -1;
-        this.ways = new ArrayList<>();
+        shortestWay = -1;
+        ways = new ArrayList<>();
     }
 
     /**
@@ -32,7 +32,7 @@ public class Vertex<T> {
      * @return - list of incident edges.
      */
     public List<Edge<T>> getWays() {
-        return this.ways;
+        return ways;
     }
 
     /**
@@ -41,7 +41,7 @@ public class Vertex<T> {
      * @param way - edge to add.
      */
     public void addWay(Edge<T> way) {
-        this.ways.add(way);
+        ways.add(way);
     }
 
     /**
@@ -59,7 +59,7 @@ public class Vertex<T> {
      * @return value of the shortest way to this vertex from start vertex.
      */
     public int getShortestWay() {
-        return this.shortestWay;
+        return shortestWay;
     }
 
     /**
@@ -68,7 +68,7 @@ public class Vertex<T> {
      * @param value - new shortest way value.
      */
     public void setShortestWay(int value) {
-        this.shortestWay = value;
+        shortestWay = value;
     }
 
     /**

@@ -22,8 +22,8 @@ public class Graph<T> implements Comparable<T> {
      * @param vertexes - List of vertexes.
      */
     public Graph(List<Vertex<T>> vertexes) {
-        this.vertexArray = new HashMap<>();
-        this.edgesArray = new HashMap<>();
+        vertexArray = new HashMap<>();
+        edgesArray = new HashMap<>();
         int edgesCnt = 0;
         for (Vertex<T> i : vertexes) {
             vertexArray.put(i.getValue(), i);
@@ -159,7 +159,7 @@ public class Graph<T> implements Comparable<T> {
      * @param vertex - new vertex to add.
      */
     public void addVertex(Vertex<T> vertex) {
-        this.vertexArray.put(vertex.getValue(), vertex);
+        vertexArray.put(vertex.getValue(), vertex);
     }
 
     /**
@@ -169,7 +169,7 @@ public class Graph<T> implements Comparable<T> {
      */
     public void addVertex(T value) {
         Vertex<T> vertex = new Vertex<>(value);
-        this.vertexArray.put(vertex.getValue(), vertex);
+        vertexArray.put(vertex.getValue(), vertex);
     }
 
     /**
@@ -179,13 +179,13 @@ public class Graph<T> implements Comparable<T> {
      * @param key - key of vertex to delete.
      */
     public void removeVertex(T key) {
-        for (Edge<T> i : this.edgesArray.values()) {
-            if (i.getTo() == this.vertexArray.get(key)) {
+        for (Edge<T> i : edgesArray.values()) {
+            if (i.getTo() == vertexArray.get(key)) {
                 i.getFrom().getWays().remove(i);
             }
         }
-        this.vertexArray.get(key).getWays().clear();
-        this.vertexArray.remove(key);
+        vertexArray.get(key).getWays().clear();
+        vertexArray.remove(key);
     }
 
     /**
@@ -199,10 +199,10 @@ public class Graph<T> implements Comparable<T> {
      * @param to - To vertex's key.
      */
     public void addEdge(Integer key, Edge<T> edge, T from, T to) {
-        edge.setFrom(this.vertexArray.get(from));
-        edge.setTo(this.vertexArray.get(to));
-        this.edgesArray.put(key, edge);
-        this.vertexArray.get(from).addWay(edge);
+        edge.setFrom(vertexArray.get(from));
+        edge.setTo(vertexArray.get(to));
+        edgesArray.put(key, edge);
+        vertexArray.get(from).addWay(edge);
     }
 
     /**
@@ -211,8 +211,8 @@ public class Graph<T> implements Comparable<T> {
      * @param key - edge's key.
      */
     public void removeEdge(T key) {
-        this.edgesArray.get(key).getFrom().getWays().remove(edgesArray.get(key));
-        this.edgesArray.remove(key);
+        edgesArray.get(key).getFrom().getWays().remove(edgesArray.get(key));
+        edgesArray.remove(key);
     }
 
     /**
@@ -222,12 +222,11 @@ public class Graph<T> implements Comparable<T> {
      */
     public void removeEdge(Edge<T> edge) {
         edge.getFrom().getWays().remove(edge);
-        this.edgesArray.values().remove(edge);
+        edgesArray.values().remove(edge);
     }
 
     @Override
     public int compareTo(T o) {
         return 0;
     }
-
 }
