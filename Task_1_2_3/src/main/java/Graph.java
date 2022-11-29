@@ -11,7 +11,7 @@ import java.util.Queue;
  *
  * @param <T> - type of vertex's value and HashMap key.
  */
-public class Graph<T> implements Comparable<T> {
+public class Graph<T extends Comparable<T>> {
     public final Map<T, Vertex<T>> vertexArray;
     public final Map<Integer, Edge<T>> edgesArray;
 
@@ -225,8 +225,4 @@ public class Graph<T> implements Comparable<T> {
         edgesArray.values().remove(edge);
     }
 
-    @Override
-    public int compareTo(T o) {
-        return 0;
-    }
 }
