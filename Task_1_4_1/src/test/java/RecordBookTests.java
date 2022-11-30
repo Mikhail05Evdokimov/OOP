@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 public class RecordBookTests {
 
     @Test
-    public void myRealRecordBookTest() throws Exception {
+    public void myRealRecordBookTest() {
         RecordBook recordBook = new RecordBook("Mikhail");
         Assertions.assertEquals("Mikhail", recordBook.getName());
         recordBook.addMark("Algebra", 3);
@@ -34,7 +34,7 @@ public class RecordBookTests {
     }
 
     @Test
-    public void goodDiplomaMarkTest() throws Exception {
+    public void goodDiplomaMarkTest() {
         RecordBook recordBook = new RecordBook("Evan");
         recordBook.setName("Ivan");
         Assertions.assertEquals("Ivan", recordBook.getName());
@@ -58,7 +58,7 @@ public class RecordBookTests {
     }
 
     @Test
-    public void badDiplomaMarkTest1() throws Exception {
+    public void badDiplomaMarkTest1() {
         RecordBook recordBook = new RecordBook("Ivan");
         for (int i = 1; i < 9; i++) {
             recordBook.setSemesterNumber(i);
@@ -69,7 +69,7 @@ public class RecordBookTests {
     }
 
     @Test
-    public void badDiplomaMarkTest2() throws Exception {
+    public void badDiplomaMarkTest2() {
         RecordBook recordBook = new RecordBook("Ivan");
         for (int i = 1; i < 9; i++) {
             recordBook.setSemesterNumber(i);
