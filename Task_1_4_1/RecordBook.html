@@ -352,14 +352,11 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setDiplomaWorkMark</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setDiplomaWorkMark&#8203;(int&nbsp;newMark)
-                        throws java.lang.Exception</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setDiplomaWorkMark&#8203;(int&nbsp;newMark)</pre>
 <div class="block">Setter for DiplomaWorkMark.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>newMark</code> - - new value of Diploma Work Mark.</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code> - in case of incorrect input value.</dd>
 </dl>
 </li>
 </ul>
@@ -383,14 +380,11 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>setSemesterNumber</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;setSemesterNumber&#8203;(int&nbsp;semesterNumber)
-                       throws java.lang.Exception</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;setSemesterNumber&#8203;(int&nbsp;semesterNumber)</pre>
 <div class="block">Semester number setter.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>semesterNumber</code> - - desired semester number.</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code> - in case of incorrect input value.</dd>
 </dl>
 </li>
 </ul>
@@ -415,15 +409,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>addMark</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;addMark&#8203;(java.lang.String&nbsp;subject,
-                    int&nbsp;mark)
-             throws java.lang.Exception</pre>
+                    int&nbsp;mark)</pre>
 <div class="block">Method to add a new mark as subject name and subject mark.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>subject</code> - - subject name.</dd>
 <dd><code>mark</code> - - mark for this subject.</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code> - in case of incorrect mark value or if the subject has already had a mark.</dd>
 </dl>
 </li>
 </ul>
@@ -434,15 +425,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>changeMark</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;changeMark&#8203;(java.lang.String&nbsp;subject,
-                       int&nbsp;newMark)
-                throws java.lang.Exception</pre>
+                       int&nbsp;newMark)</pre>
 <div class="block">Method to change existing mark.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>subject</code> - - subject to change a mark.</dd>
 <dd><code>newMark</code> - - new mark value.</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code> - in case of incorrect mark value or if the subject doesn't have a mark yet.</dd>
 </dl>
 </li>
 </ul>
@@ -452,16 +440,13 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>getMark</h4>
-<pre class="methodSignature">public&nbsp;int&nbsp;getMark&#8203;(java.lang.String&nbsp;subject)
-            throws java.lang.Exception</pre>
+<pre class="methodSignature">public&nbsp;int&nbsp;getMark&#8203;(java.lang.String&nbsp;subject)</pre>
 <div class="block">Getter for a mark in current semester.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>subject</code> - - subject to get a mark.</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>mark value in selected subject.</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code> - if student doesn't have a mark in this subject.</dd>
 </dl>
 </li>
 </ul>
@@ -471,14 +456,11 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>deleteMark</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;deleteMark&#8203;(java.lang.String&nbsp;subject)
-                throws java.lang.Exception</pre>
+<pre class="methodSignature">public&nbsp;void&nbsp;deleteMark&#8203;(java.lang.String&nbsp;subject)</pre>
 <div class="block">Removes the mark.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>subject</code> - - subject to remove the mark.</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code> - if student doesn't have a mark in this subject.</dd>
 </dl>
 </li>
 </ul>
@@ -516,14 +498,11 @@ extends java.lang.Object</pre>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>redDiplomaCheck</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;redDiplomaCheck()
-                        throws java.lang.Exception</pre>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;redDiplomaCheck()</pre>
 <div class="block">Count the ability of getting red diploma.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>true if it's possible, else returns false.</dd>
-<dt><span class="throwsLabel">Throws:</span></dt>
-<dd><code>java.lang.Exception</code> - if student doesn't have a diploma work mark or hasn't finished learning.</dd>
 </dl>
 </li>
 </ul>
