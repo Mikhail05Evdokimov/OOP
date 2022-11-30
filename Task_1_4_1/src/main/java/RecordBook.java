@@ -166,7 +166,8 @@ public class RecordBook {
      */
     private double semesterGradePoint(int semesterNumber) {
         //noinspection OptionalGetWithoutIsPresent
-        double gradePoint = semesters.get(semesterNumber).marks.values().stream().reduce(Integer::sum).get();
+        double gradePoint =
+            semesters.get(semesterNumber).marks.values().stream().reduce(Integer::sum).get();
         int counter = semesters.get(semesterNumber).marks.values().size();
         gradePoint = gradePoint / counter;
         return gradePoint;
