@@ -9,6 +9,6 @@ public class Marks {
     public final Map<String, Integer> marks;
 
     public Marks() {
-        this.marks = new HashMap<>();
+        marks = new HashMap<>();
     }
 }
