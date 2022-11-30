@@ -21,10 +21,10 @@ public class RecordBook {
      */
     public RecordBook(String name) {
         this.name = name;
-        this.diplomaWorkMark = 0;
-        this.semesters = new HashMap<>();
-        this.semesterNumber = 1;
-        this.semesters.put(semesterNumber, new Marks());
+        diplomaWorkMark = 0;
+        semesters = new HashMap<>();
+        semesterNumber = 1;
+        semesters.put(semesterNumber, new Marks());
     }
 
     /**
@@ -76,7 +76,7 @@ public class RecordBook {
      */
     public void setSemesterNumber(int semesterNumber) throws Exception {
         if (semesterNumber > 0 && semesterNumber <= 8) {
-            this.semesters.computeIfAbsent(semesterNumber, k -> new Marks());
+            semesters.computeIfAbsent(semesterNumber, k -> new Marks());
             this.semesterNumber = semesterNumber;
         } else {
             throw new Exception("Wrong semester number value!");
@@ -122,8 +122,8 @@ public class RecordBook {
      */
     public void changeMark(String subject, int newMark) throws Exception {
         if (newMark >= 2 && newMark <= 5) {
-            if (this.semesters.get(semesterNumber).marks.get(subject) != null) {
-                this.semesters.get(semesterNumber).marks.put(subject, newMark);
+            if (semesters.get(semesterNumber).marks.get(subject) != null) {
+                semesters.get(semesterNumber).marks.put(subject, newMark);
             } else {
                 System.out.println("If you want to add a mark, use addMark() method.");
                 System.out.println("Hint: also check correctness of the semester number");
@@ -142,8 +142,8 @@ public class RecordBook {
      * @throws Exception if student doesn't have a mark in this subject.
      */
     public int getMark(String subject) throws Exception {
-        if (this.semesters.get(semesterNumber).marks.get(subject) != null) {
-            return this.semesters.get(semesterNumber).marks.get(subject);
+        if (semesters.get(semesterNumber).marks.get(subject) != null) {
+            return semesters.get(semesterNumber).marks.get(subject);
         } else {
             System.out.println("If you want to add a mark, use addMark() method.");
             System.out.println("Hint: also check correctness of the semester number");
@@ -158,10 +158,10 @@ public class RecordBook {
      * @throws Exception if student doesn't have a mark in this subject.
      */
     public void deleteMark(String subject) throws Exception {
-        if (this.semesters.get(semesterNumber).marks.get(subject) == null) {
+        if (semesters.get(semesterNumber).marks.get(subject) == null) {
             throw new Exception("Student hasn't got a mark in this subject.");
         }
-        this.semesters.get(semesterNumber).marks.remove(subject);
+        semesters.get(semesterNumber).marks.remove(subject);
     }
 
     /**
