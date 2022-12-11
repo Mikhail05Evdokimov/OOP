@@ -2,6 +2,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Class record book which stores information about student:
@@ -217,11 +218,17 @@ public class RecordBook {
         if (diplomaWorkMark == 0) {
             throw new IllegalStateException("No diploma work mark.");
         }
-        for (Marks i : semesters.values()) {
+
+    /*    for (Marks i : semesters.values()) {
             if (i.marks.isEmpty()) {
                 throw new IllegalStateException("It is too early to calculate the grade "
                     + "diploma mark. Student hasn't finished the last semester.");
             }
+        } */
+
+        if (semesters.values().stream().anyMatch(Objects::isNull)) {
+            throw new IllegalStateException("It is too early to calculate the grade "
+                + "diploma mark. Student hasn't finished the last semester.");
         }
         if (diplomaWorkMark < 5) {
             return false;
