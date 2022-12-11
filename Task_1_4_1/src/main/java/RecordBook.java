@@ -156,6 +156,9 @@ public class RecordBook {
      * @param subject - subject to remove the mark.
      */
     public void deleteMark(String subject) {
+        if (semesters.get(semesterNumber) == null) {
+            throw new IllegalStateException("Student hasn't got marks in this semester.");
+        }
         if (semesters.get(semesterNumber).marks.get(subject) == null) {
             throw new IllegalStateException("Student hasn't got a mark in this subject.");
         }
