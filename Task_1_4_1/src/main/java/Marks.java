@@ -6,9 +6,6 @@ import java.util.Map;
  * as Map (Subject name, Mark).
  */
 public class Marks {
-    public final Map<String, Integer> marks;
+    public final Map<String, Integer> marks = new HashMap<>();
 
-    public Marks() {
-        marks = new HashMap<>();
-    }
 }
