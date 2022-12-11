@@ -117,6 +117,9 @@ public class RecordBook {
      * @param newMark - new mark value.
      */
     public void changeMark(String subject, int newMark) {
+        if (semesters.get(semesterNumber) == null) {
+            throw new IllegalStateException("Student hasn't got marks in this semester.");
+        }
         if (newMark >= 2 && newMark <= 5) {
             if (semesters.get(semesterNumber).marks.get(subject) != null) {
                 semesters.get(semesterNumber).marks.put(subject, newMark);
