@@ -137,12 +137,16 @@ public class RecordBook {
      * @return mark value in selected subject.
      */
     public int getMark(String subject) {
-        if (semesters.get(semesterNumber).marks.get(subject) != null) {
-            return semesters.get(semesterNumber).marks.get(subject);
+        if (semesters.get(semesterNumber) != null) {
+            if (semesters.get(semesterNumber).marks.get(subject) != null) {
+                return semesters.get(semesterNumber).marks.get(subject);
+            } else {
+                System.out.println("If you want to add a mark, use addMark() method.");
+                System.out.println("Hint: also check correctness of the semester number");
+                throw new IllegalStateException("Student hasn't got a mark in this subject.");
+            }
         } else {
-            System.out.println("If you want to add a mark, use addMark() method.");
-            System.out.println("Hint: also check correctness of the semester number");
-            throw new IllegalStateException("Student hasn't got a mark in this subject.");
+            throw new IllegalStateException("Student hasn't got marks in this semester.");
         }
     }
 
