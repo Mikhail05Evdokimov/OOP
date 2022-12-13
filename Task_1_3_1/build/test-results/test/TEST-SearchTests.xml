@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="SearchTests" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-12-13T03:47:37" hostname="VL-NB-03" time="0.322">
+  <properties/>
+  <testcase name="russianTest()" classname="SearchTests" time="0.107"/>
+  <testcase name="someSubstringsTest()" classname="SearchTests" time="0.004"/>
+  <testcase name="simpleTest()" classname="SearchTests" time="0.005"/>
+  <testcase name="myTest()" classname="SearchTests" time="0.003"/>
+  <testcase name="vladTest()" classname="SearchTests" time="0.004"/>
+  <testcase name="noSubstringTest()" classname="SearchTests" time="0.005"/>
+  <testcase name="atTheBeginningTest()" classname="SearchTests" time="0.042"/>
+  <testcase name="doubleLetterTest()" classname="SearchTests" time="0.046"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
