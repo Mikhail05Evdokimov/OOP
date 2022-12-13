@@ -23,9 +23,9 @@ public class FileSearcher {
         List<Character> buffer = new ArrayList<>();
         long i = 0;
         int findCnt = 0;
-        try(Reader reader = new InputStreamReader(filename, StandardCharsets.UTF_8)) {
+        try (Reader reader = new InputStreamReader(filename, StandardCharsets.UTF_8)) {
             int c;
-            while((c = reader.read()) != -1){
+            while ((c = reader.read()) != -1) {
                 i++;
                 if (c == string.charAt(findCnt)) {
                     buffer.add((char) c);
@@ -35,9 +35,8 @@ public class FileSearcher {
                         findCnt = 0;
                         buffer.clear();
                     }
-                }
-                else {
-                    if(findCnt != 0) {
+                } else {
+                    if (findCnt != 0) {
                         buffer.add((char) c);
                         buffer.remove(0);
                         findCnt = bufferSearch(buffer, string);
@@ -56,8 +55,7 @@ public class FileSearcher {
         for (Character character : buffer) {
             if (character == string.charAt(findCnt)) {
                 findCnt++;
-            }
-            else {
+            } else {
                 findCnt = 0;
             }
         }
