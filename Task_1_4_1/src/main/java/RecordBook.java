@@ -118,12 +118,13 @@ public class RecordBook {
      * @param newMark - new mark value.
      */
     public void changeMark(String subject, int newMark) {
-        if (semesters.get(semesterNumber) == null) {
+        Marks semester = semesters.get(semesterNumber);
+        if (semester == null) {
             throw new IllegalStateException("Student hasn't got marks in this semester.");
         }
         if (newMark >= 2 && newMark <= 5) {
-            if (semesters.get(semesterNumber).marks.get(subject) != null) {
-                semesters.get(semesterNumber).marks.put(subject, newMark);
+            if (semester.marks.get(subject) != null) {
+                semester.marks.put(subject, newMark);
             } else {
                 System.out.println("If you want to add a mark, use addMark() method.");
                 System.out.println("Hint: also check correctness of the semester number");
@@ -141,9 +142,10 @@ public class RecordBook {
      * @return mark value in selected subject.
      */
     public int getMark(String subject) {
-        if (semesters.get(semesterNumber) != null) {
-            if (semesters.get(semesterNumber).marks.get(subject) != null) {
-                return semesters.get(semesterNumber).marks.get(subject);
+        Marks semester = semesters.get(semesterNumber);
+        if (semester != null) {
+            if (semester.marks.get(subject) != null) {
+                return semester.marks.get(subject);
             } else {
                 System.out.println("If you want to add a mark, use addMark() method.");
                 System.out.println("Hint: also check correctness of the semester number");
@@ -160,13 +162,14 @@ public class RecordBook {
      * @param subject - subject to remove the mark.
      */
     public void deleteMark(String subject) {
-        if (semesters.get(semesterNumber) == null) {
+        Marks semester = semesters.get(semesterNumber);
+        if (semester == null) {
             throw new IllegalStateException("Student hasn't got marks in this semester.");
         }
-        if (semesters.get(semesterNumber).marks.get(subject) == null) {
+        if (semester.marks.get(subject) == null) {
             throw new IllegalStateException("Student hasn't got a mark in this subject.");
         }
-        semesters.get(semesterNumber).marks.remove(subject);
+        semester.marks.remove(subject);
     }
 
     /**
@@ -176,10 +179,10 @@ public class RecordBook {
      * @return semester grade point.
      */
     private double semesterGradePoint(int semesterNumber) {
+        Marks semester = semesters.get(semesterNumber);
         //noinspection OptionalGetWithoutIsPresent
-        double gradePoint =
-            semesters.get(semesterNumber).marks.values().stream().reduce(Integer::sum).get();
-        int counter = semesters.get(semesterNumber).marks.values().size();
+        double gradePoint = semester.marks.values().stream().reduce(Integer::sum).get();
+        int counter = semester.marks.values().size();
         gradePoint = gradePoint / counter;
         return gradePoint;
     }
