@@ -2,12 +2,10 @@ import java.util.Objects;
 import java.util.Scanner;
 import java.util.Stack;
 
-import static java.lang.Math.pow;
-
 public class Parser {
 
     Stack<Operations> operationsStack;
-    Stack<Number> numberStack;
+    Stack<Double> numberStack;
 
     public enum Operations {
         plus, minus, mult, div, log, pow, sqrt, sin, cos
@@ -28,68 +26,53 @@ public class Parser {
         realParser(scan);
     }
 
-    public void realParser(Scanner scan) {
+    private void realParser(Scanner scan) {
         operationsStack = new Stack<>();
         numberStack = new Stack<>();
-        String i;
-
+        int expectedNumber = 1;
         while (!(scan.hasNextDouble() || scan.hasNextInt())) {
             switch (scan.next()) {
                 case " ":
                     break;
                 case "+":
                     operationsStack.push(Operations.plus);
+                    expectedNumber++;
                     break;
                 case "-":
                     operationsStack.push(Operations.minus);
+                    expectedNumber++;
                     break;
                 case "*":
                     operationsStack.push(Operations.mult);
+                    expectedNumber++;
                     break;
                 case "/":
                     operationsStack.push(Operations.div);
+                    expectedNumber++;
                     break;
-                case "l":
-                    if (Objects.equals(scan.next(), "o")) {
-                        if (Objects.equals(scan.next(), "g")) {
-                            operationsStack.push(Operations.log);
-                        }
-                    }
+                case "log":
+                    operationsStack.push(Operations.log);
                     break;
-                case "p":
-                    if (Objects.equals(scan.next(), "o")) {
-                        if (Objects.equals(scan.next(), "w")) {
-                            operationsStack.push(Operations.pow);
-                        }
-                    }
+                case "pow":
+                    operationsStack.push(Operations.pow);
+                    expectedNumber++;
                     break;
-                case "s":
-                    if (Objects.equals(scan.next(), "i")) {
-                        if (Objects.equals(scan.next(), "n")) {
-                            operationsStack.push(Operations.sin);
-                        }
-                    } else {
-                        if (Objects.equals(scan.next(), "q")) {
-                            if (Objects.equals(scan.next(), "r")) {
-                                if (Objects.equals(scan.next(), "t"))
-                                    operationsStack.push(Operations.sqrt);
-                            }
-                        }
-                    }
+                case "sin":
+                    operationsStack.push(Operations.sin);
                     break;
-                case "c":
-                    if (Objects.equals(scan.next(), "o")) {
-                        if (Objects.equals(scan.next(), "s")) {
-                            operationsStack.push(Operations.cos);
-                        }
-                    }
+                case "sqrt":
+                    operationsStack.push(Operations.sqrt);
+                    break;
+                case "cos":
+                    operationsStack.push(Operations.cos);
                     break;
                 default:
+                    System.out.println(operationsStack);
                     throw new IllegalArgumentException("Wrong operations format");
             }
         }
 
-        if (operationsStack.empty()) {
+        if (operationsStack.isEmpty()) {
             throw new IllegalArgumentException("Wrong operations format");
         }
 
@@ -99,9 +82,8 @@ public class Parser {
         if (numberStack.empty()) {
             throw new IllegalArgumentException("Wrong numbers format");
         }
-        if (numberStack.size() - 1 != operationsStack.size()) {
+        if (numberStack.size() != expectedNumber) {
             throw new IllegalArgumentException("Incorrect ratio of operations/numbers");
         }
-//Передаём стэки чисел и операций в класс калькулятор
     }
 }
