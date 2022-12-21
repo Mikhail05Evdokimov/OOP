@@ -79,4 +79,13 @@ public class SearchTests {
             Assertions.assertEquals(FileSearcher.search(file, "world"), arr);
         }
     }
+
+    @Test
+    public void bigRussianTest() throws IOException {
+        ArrayList<Long> arr = new ArrayList<>();
+        arr.add(322592L);
+        try (InputStream file = getClass().getClassLoader().getResourceAsStream("input9.txt")) {
+            Assertions.assertEquals(FileSearcher.search(file, "Ишь сколько денег!"), arr);
+        }
+    }
 }
