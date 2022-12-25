@@ -97,5 +97,4 @@ public class CalculatorTests {
         double act = calc.calculator("pow / * + sqrt log cos - sin 2 3 6 2 1 1,5707963267948966");
         Assertions.assertEquals(act, exp);
     }
-
 }
