@@ -1,15 +1,26 @@
 import java.util.Scanner;
 import java.util.Stack;
 
+/**
+ * Parser for input string.
+ * Scans the line symbol by symbol and saves operations
+ * and numbers into two stacks.
+ */
 public class Parser {
 
     Stack<Operations> operationsStack;
     Stack<Double> numberStack;
 
+    /**
+     * Constants to store operation's order in stack.
+     */
     public enum Operations {
         PLUS, MINUS, MULT, DIV, LOG, POW, SQRT, SIN, COS
     }
 
+    /**
+     * Constructor for console calculator's parser.
+     */
     public Parser() {
         Scanner scan = new Scanner(System.in);
         if (scan.hasNext()) {
@@ -20,6 +31,10 @@ public class Parser {
 
     }
 
+    /**
+     * Constructor for non-console calculator's parser.
+     * @param inputString - expression to parse.
+     */
     public Parser(String inputString) {
         Scanner scan = new Scanner(inputString);
         realParser(scan);
