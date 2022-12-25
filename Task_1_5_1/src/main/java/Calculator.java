@@ -4,6 +4,10 @@ import static java.lang.Math.pow;
 import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;
 
+/**
+ * Console (or non-console) calculator with main arithmetical
+ * operations and some exceptions.
+ */
 public class Calculator {
 
     public double calculator() {
@@ -20,7 +24,7 @@ public class Calculator {
         var operationsStack = input.operationsStack;
         var numberStack = input.numberStack;
         Parser.Operations oper;
-        while(!(operationsStack.isEmpty())) {
+        while (!(operationsStack.isEmpty())) {
             oper = operationsStack.pop();
             switch (oper) {
                 case PLUS:
@@ -62,6 +66,8 @@ public class Calculator {
                     break;
                 case COS:
                     numberStack.push(cos(numberStack.pop()));
+                    break;
+                default:
                     break;
             }
         }

@@ -1,6 +1,9 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Testing module for my calculator.
+ */
 public class CalculatorTests {
 
     @Test
@@ -90,6 +93,7 @@ public class CalculatorTests {
         double act = calc.calculator("sin 1,5707963267948966");
         Assertions.assertEquals(act, exp);
     }
+
     @Test
     public void veryBigTest() {
         double exp = 16;
