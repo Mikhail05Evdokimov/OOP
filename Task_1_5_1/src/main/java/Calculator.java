@@ -23,15 +23,46 @@ public class Calculator {
         while(!(operationsStack.isEmpty())) {
             oper = operationsStack.pop();
             switch (oper) {
-                case plus -> numberStack.push(numberStack.pop() + numberStack.pop());
-                case minus -> numberStack.push(numberStack.pop() - numberStack.pop());
-                case mult -> numberStack.push(numberStack.pop() * numberStack.pop());
-                case div -> numberStack.push(numberStack.pop() / numberStack.pop());
-                case pow -> numberStack.push(pow(numberStack.pop(), numberStack.pop()));
-                case sqrt -> numberStack.push(sqrt(numberStack.pop()));
-                case log -> numberStack.push(log(numberStack.pop()));
-                case sin -> numberStack.push(sin(numberStack.pop()));
-                case cos -> numberStack.push(cos(numberStack.pop()));
+                case PLUS:
+                    numberStack.push(numberStack.pop() + numberStack.pop());
+                    break;
+                case MINUS:
+                    numberStack.push(numberStack.pop() - numberStack.pop());
+                    break;
+                case MULT:
+                    numberStack.push(numberStack.pop() * numberStack.pop());
+                    break;
+                case DIV:
+                    var a = numberStack.pop();
+                    var b = numberStack.pop();
+                    if (b == 0) {
+                        throw new IllegalArgumentException("Деление на ноль!");
+                    }
+                    numberStack.push(a / b);
+                    break;
+                case POW:
+                    numberStack.push(pow(numberStack.pop(), numberStack.pop()));
+                    break;
+                case SQRT:
+                    a = numberStack.pop();
+                    if (a < 0) {
+                        throw new IllegalArgumentException("Корень из отр. числа!");
+                    }
+                    numberStack.push(sqrt(a));
+                    break;
+                case LOG:
+                    a = numberStack.pop();
+                    if (a <= 0) {
+                        throw new IllegalArgumentException("LOG по числу <= 0!");
+                    }
+                    numberStack.push(log(a));
+                    break;
+                case SIN:
+                    numberStack.push(sin(numberStack.pop()));
+                    break;
+                case COS:
+                    numberStack.push(cos(numberStack.pop()));
+                    break;
             }
         }
         return numberStack.pop();

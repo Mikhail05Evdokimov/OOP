@@ -1,4 +1,3 @@
-import java.util.Objects;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -8,7 +7,7 @@ public class Parser {
     Stack<Double> numberStack;
 
     public enum Operations {
-        plus, minus, mult, div, log, pow, sqrt, sin, cos
+        PLUS, MINUS, MULT, DIV, LOG, POW, SQRT, SIN, COS
     }
 
     public Parser() {
@@ -35,36 +34,36 @@ public class Parser {
                 case " ":
                     break;
                 case "+":
-                    operationsStack.push(Operations.plus);
+                    operationsStack.push(Operations.PLUS);
                     expectedNumber++;
                     break;
                 case "-":
-                    operationsStack.push(Operations.minus);
+                    operationsStack.push(Operations.MINUS);
                     expectedNumber++;
                     break;
                 case "*":
-                    operationsStack.push(Operations.mult);
+                    operationsStack.push(Operations.MULT);
                     expectedNumber++;
                     break;
                 case "/":
-                    operationsStack.push(Operations.div);
+                    operationsStack.push(Operations.DIV);
                     expectedNumber++;
                     break;
                 case "log":
-                    operationsStack.push(Operations.log);
+                    operationsStack.push(Operations.LOG);
                     break;
                 case "pow":
-                    operationsStack.push(Operations.pow);
+                    operationsStack.push(Operations.POW);
                     expectedNumber++;
                     break;
                 case "sin":
-                    operationsStack.push(Operations.sin);
+                    operationsStack.push(Operations.SIN);
                     break;
                 case "sqrt":
-                    operationsStack.push(Operations.sqrt);
+                    operationsStack.push(Operations.SQRT);
                     break;
                 case "cos":
-                    operationsStack.push(Operations.cos);
+                    operationsStack.push(Operations.COS);
                     break;
                 default:
                     System.out.println(operationsStack);
