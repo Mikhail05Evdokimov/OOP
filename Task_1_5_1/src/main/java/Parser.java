@@ -33,6 +33,7 @@ public class Parser {
 
     /**
      * Constructor for non-console calculator's parser.
+     *
      * @param inputString - expression to parse.
      */
     public Parser(String inputString) {
