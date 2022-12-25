@@ -83,4 +83,19 @@ public class CalculatorTests {
         Assertions.assertEquals(act, exp);
     }
 
+    @Test
+    public void sin2Test() {
+        double exp = 1;
+        Calculator calc = new Calculator();
+        double act = calc.calculator("sin 1,5707963267948966");
+        Assertions.assertEquals(act, exp);
+    }
+    @Test
+    public void veryBigTest() {
+        double exp = 16;
+        Calculator calc = new Calculator();
+        double act = calc.calculator("pow / * + sqrt log cos - sin 2 3 6 2 1 1,5707963267948966");
+        Assertions.assertEquals(act, exp);
+    }
+
 }
