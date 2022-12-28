@@ -42,7 +42,7 @@ public class CalculatorTests {
     public void sinTest() {
         double exp = 0.8414709848078965;
         Calculator calc = new Calculator();
-        double act = calc.calculator("sin 1,0");
+        double act = calc.calculator("sin 1.0");
         Assertions.assertEquals(act, exp);
     }
 
@@ -50,7 +50,7 @@ public class CalculatorTests {
     public void cosTest() {
         double exp = -0.8414709848078965;
         Calculator calc = new Calculator();
-        double act = calc.calculator("sin -1,0");
+        double act = calc.calculator("sin -1.0");
         Assertions.assertEquals(act, exp);
     }
 
@@ -66,7 +66,7 @@ public class CalculatorTests {
     public void logTest() {
         double exp = 2.1400661634962708;
         Calculator calc = new Calculator();
-        double act = calc.calculator("log 8,5");
+        double act = calc.calculator("log 8.5");
         Assertions.assertEquals(act, exp);
     }
 
@@ -90,7 +90,7 @@ public class CalculatorTests {
     public void sin2Test() {
         double exp = 1;
         Calculator calc = new Calculator();
-        double act = calc.calculator("sin 1,5707963267948966");
+        double act = calc.calculator("sin 1.5707963267948966");
         Assertions.assertEquals(act, exp);
     }
 
@@ -98,7 +98,7 @@ public class CalculatorTests {
     public void veryBigTest() {
         double exp = 16;
         Calculator calc = new Calculator();
-        double act = calc.calculator("pow / * + sqrt log cos - sin 2 3 6 2 1 1,5707963267948966");
+        double act = calc.calculator("pow / * + sqrt log cos - sin 2 3 6 2 1 1.5707963267948966");
         Assertions.assertEquals(act, exp);
     }
 }
