@@ -24,6 +24,9 @@ public class PrimeSearcherThread {
     }
 
     public static boolean Searcher(List<Integer> arr, int threadsCount) {
+        if (threadsCount < 1 || threadsCount > arr.size()) {
+            throw new IllegalArgumentException("Bad threads number");
+        }
         MyThread[] myThreads = new MyThread[threadsCount];
         for (int i = 0; i < threadsCount; i++) {
             myThreads[i] = new MyThread();

@@ -9,7 +9,8 @@ public class StreamSearcher {
     }
 
     private boolean checker(Object i) {
-        for (int j = 2; j <= sqrt((Integer) i); j++) {
+        //for (int j = 2; j <= sqrt((Integer) i); j++) {
+        for (int j = 2; j <(Integer) i; j++) {
                 if ((int)i % j == 0) {
                     return true;
                 }
