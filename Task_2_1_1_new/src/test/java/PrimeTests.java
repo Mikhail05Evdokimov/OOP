@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class PrimeTests {
         arr.add(2);
         arr.add(3);
         arr.add(5);
-        System.out.println(PrimeSearcher.Searcher(arr));
+        Assertions.assertFalse(PrimeSearcher.Searcher(arr));
     }
 
     @Test
@@ -22,7 +23,7 @@ public class PrimeTests {
         arr.add(2);
         arr.add(8);
         arr.add(5);
-        System.out.println(PrimeSearcher.Searcher(arr));
+        Assertions.assertTrue(PrimeSearcher.Searcher(arr));
     }
 
     @Test
@@ -137,9 +138,9 @@ public class PrimeTests {
             6998029, 6998039};
         List<Integer> arr = new ArrayList<>(List.of(brr));
         long date1 = System.currentTimeMillis();
-        System.out.println(PrimeSearcher.Searcher(arr));
+        //System.out.println(PrimeSearcher.Searcher(arr));
+        Assertions.assertFalse(PrimeSearcher.Searcher(arr));
         long date2 = System.currentTimeMillis();
         System.out.println(date2 - date1);
     }
-
 }

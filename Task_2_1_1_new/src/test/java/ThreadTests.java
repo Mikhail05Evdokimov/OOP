@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
@@ -123,42 +124,46 @@ public class ThreadTests {
         arr.add(13);
         arr.add(11);
         arr.add(17);
-        System.out.println(PrimeSearcherThread.Searcher(arr, 4));
+        Assertions.assertTrue(PrimeSearcherThread.Searcher(arr, 2));
     }
 
     @Test
     public void parallelTestBig4() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        long date1 = System.currentTimeMillis();
+        Assertions.assertTrue(PrimeSearcherThread.Searcher(arr, 4));
+        /*long date1 = System.currentTimeMillis();
         System.out.println(PrimeSearcherThread.Searcher(arr, 4));
         long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);
+        System.out.println(date2 - date1);*/
     }
 
     @Test
     public void parallelTestBig2() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        long date1 = System.currentTimeMillis();
+        Assertions.assertTrue(PrimeSearcherThread.Searcher(arr, 2));
+        /*long date1 = System.currentTimeMillis();
         System.out.println(PrimeSearcherThread.Searcher(arr, 2));
         long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);
+        System.out.println(date2 - date1);*/
     }
 
     @Test
     public void parallelTestBig6() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        long date1 = System.currentTimeMillis();
+        Assertions.assertTrue(PrimeSearcherThread.Searcher(arr, 6));
+        /*long date1 = System.currentTimeMillis();
         System.out.println(PrimeSearcherThread.Searcher(arr, 6));
         long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);
+        System.out.println(date2 - date1);*/
     }
 
     @Test
     public void parallelTestBig8() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        long date1 = System.currentTimeMillis();
+        Assertions.assertTrue(PrimeSearcherThread.Searcher(arr, 8));
+        /*long date1 = System.currentTimeMillis();
         System.out.println(PrimeSearcherThread.Searcher(arr, 8));
         long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);
+        System.out.println(date2 - date1);*/
     }
 }

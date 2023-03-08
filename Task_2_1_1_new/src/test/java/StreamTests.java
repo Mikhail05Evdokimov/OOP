@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ public class StreamTests {
         arr.add(2);
         arr.add(3);
         arr.add(5);
-        new StreamSearcher(arr);
+        Assertions.assertFalse(StreamSearcher.Searcher(arr));
     }
 
     @Test
@@ -23,7 +24,7 @@ public class StreamTests {
         arr.add(3);
         arr.add(5);
         arr.add(6);
-        new StreamSearcher(arr);
+        Assertions.assertTrue(StreamSearcher.Searcher(arr));
     }
 
     @Test
@@ -137,8 +138,8 @@ public class StreamTests {
             6998029, 6998039, 6997901, 6997927, 6997937, 6997967, 6998009,
             6998029, 6998039};
         List<Integer> arr = new ArrayList<>(List.of(brr));
+        Assertions.assertFalse(StreamSearcher.Searcher(arr));
         long date1 = System.currentTimeMillis();
-        new StreamSearcher(arr);
         long date2 = System.currentTimeMillis();
         System.out.println(date2 - date1);
     }
