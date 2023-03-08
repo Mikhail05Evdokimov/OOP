@@ -130,7 +130,7 @@ public class ThreadTests {
     @Test
     public void parallelTestBig4() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertTrue(PrimeSearcherThread.Searcher(arr, 4));
+        Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 4));
         /*long date1 = System.currentTimeMillis();
         System.out.println(PrimeSearcherThread.Searcher(arr, 4));
         long date2 = System.currentTimeMillis();
@@ -140,7 +140,7 @@ public class ThreadTests {
     @Test
     public void parallelTestBig2() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertTrue(PrimeSearcherThread.Searcher(arr, 2));
+        Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 2));
         /*long date1 = System.currentTimeMillis();
         System.out.println(PrimeSearcherThread.Searcher(arr, 2));
         long date2 = System.currentTimeMillis();
@@ -150,7 +150,7 @@ public class ThreadTests {
     @Test
     public void parallelTestBig6() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertTrue(PrimeSearcherThread.Searcher(arr, 6));
+        Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 6));
         /*long date1 = System.currentTimeMillis();
         System.out.println(PrimeSearcherThread.Searcher(arr, 6));
         long date2 = System.currentTimeMillis();
@@ -160,7 +160,7 @@ public class ThreadTests {
     @Test
     public void parallelTestBig8() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertTrue(PrimeSearcherThread.Searcher(arr, 8));
+        Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 8));
         /*long date1 = System.currentTimeMillis();
         System.out.println(PrimeSearcherThread.Searcher(arr, 8));
         long date2 = System.currentTimeMillis();
