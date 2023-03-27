@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrimeSearcherThread {
-    //private static System.Logger log = System.Logger.getLogger(PrimeSearcherThread.class.getName());
     static boolean flag = false;
 
     private static final Object lockObject = new Object();
