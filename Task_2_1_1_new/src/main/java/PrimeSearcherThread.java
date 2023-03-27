@@ -2,7 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PrimeSearcherThread {
+    //private static System.Logger log = System.Logger.getLogger(PrimeSearcherThread.class.getName());
     static boolean flag = false;
+
+    private static final Object lockObject = new Object();
     private static class MyThread extends Thread {
         List<Integer> numbers;
 
@@ -11,7 +14,7 @@ public class PrimeSearcherThread {
             for (int i : numbers) {
                 for (int j = 2; j < i; j++) {
                     if (i % j == 0) {
-                        synchronized (this) {
+                        synchronized (lockObject) {
                             flag = true;
                         }
                         break;
