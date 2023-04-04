@@ -1,4 +1,5 @@
 import java.util.ArrayDeque;
+import java.util.List;
 import java.util.Queue;
 
 public class Delivery extends Person{
@@ -11,20 +12,13 @@ public class Delivery extends Person{
         workSpeed = speed;
     }
 
-    private boolean takeOrders() {
-        if (Pizzeria.stockIsEmpty()) {
-            return  false;
-        }
-        //синхрнизировать проверку в цикле
-        while (baggage > currentOrders.size() && !(Pizzeria.stockIsEmpty())) {
-            Order order = Pizzeria.takePizzaFromStock();
-            System.out.println("D: Order " + order.orderName + " in a way.");
-            currentOrders.add(order);
-        }
-        return true;
+    private boolean takeOrders() { //wait + notify
+        List<Order> orders = Pizzeria.takePizzaFromStock(baggage);
+        currentOrders.addAll(orders);
+        return currentOrders.size() != 0;
     }
 
-    private void workDone() throws InterruptedException {
+    private void workDone() throws InterruptedException { //обработкa исключений
         sleep(currentOrders.element().distance / workSpeed);
         System.out.println("D: Order " + currentOrders.remove().orderName + " delivered.");
     }

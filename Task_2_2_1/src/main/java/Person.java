@@ -1,3 +1,3 @@
-public class Person extends Thread{
+public class Person extends Thread {
     int workSpeed;
 }

@@ -1,6 +1,4 @@
-import java.util.ArrayDeque;
-import java.util.ConcurrentModificationException;
-import java.util.Queue;
+import java.util.*;
 
 public class Pizzeria {
 
@@ -51,15 +49,17 @@ public class Pizzeria {
         }
     }
 
-    public static Order takePizzaFromStock() {
+    public static List<Order> takePizzaFromStock(int baggageSize) {
+        List<Order> currentOrders = new ArrayList<>();
+        Order order;
         synchronized (stockQueue) {
-            if (!(stockQueue.isEmpty())) {
+            while (!(stockQueue.isEmpty()) && currentOrders.size() < baggageSize) {
                 currentNumber--;
-                return stockQueue.remove();
+                order = stockQueue.remove();
+                System.out.println("D: Order " + order.orderName + " in a way.");
+                currentOrders.add(order);
             }
-            else {
-                throw new ConcurrentModificationException("Склад пуст");
-            }
+            return currentOrders;
         }
     }
 }

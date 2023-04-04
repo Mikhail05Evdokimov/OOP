@@ -10,9 +10,7 @@ public class Cook extends Person {
         if (Pizzeria.checkOrderQueue()) {
             return false;
         }
-        synchronized (this){
-            currentOrder = Pizzeria.getNextOrder();
-        }
+        currentOrder = Pizzeria.getNextOrder();
         System.out.println("C: Order " + currentOrder.orderName + " accepted.");
         return true;
     }
