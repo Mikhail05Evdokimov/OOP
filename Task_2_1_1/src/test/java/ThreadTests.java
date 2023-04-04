@@ -2,17 +2,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class ThreadTests {
-
-    Scanner scan = new Scanner("input.txt");
-    while (scan.hasNextDouble() || scan.hasNextInt()) {
-        numberStack.push(scan.nextDouble());
-    }
-        if (numberStack.empty()) {
-        throw new IllegalArgumentException("Wrong numbers format");
-    }
 
     Integer[] brr = {6997901, 6997927, 6997937, 6997967, 6998009,
         6998029, 6998039, 6997901, 6997927, 6997937, 6997967, 6998009,
@@ -141,60 +132,36 @@ public class ThreadTests {
     public void parallelTestBig4() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
         Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 4));
-        /*long date1 = System.currentTimeMillis();
-        System.out.println(PrimeSearcherThread.Searcher(arr, 4));
-        long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);*/
     }
 
     @Test
     public void parallelTestBig2() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
         Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 2));
-        /*long date1 = System.currentTimeMillis();
-        System.out.println(PrimeSearcherThread.Searcher(arr, 2));
-        long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);*/
     }
 
     @Test
     public void parallelTestBig6() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
         Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 6));
-        /*long date1 = System.currentTimeMillis();
-        System.out.println(PrimeSearcherThread.Searcher(arr, 6));
-        long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);*/
     }
 
     @Test
     public void parallelTestBig8() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
         Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 8));
-        /*long date1 = System.currentTimeMillis();
-        System.out.println(PrimeSearcherThread.Searcher(arr, 8));
-        long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);*/
     }
 
     @Test
     public void parallelTestBig16() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
         Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 16));
-        /*long date1 = System.currentTimeMillis();
-        System.out.println(PrimeSearcherThread.Searcher(arr, 16));
-        long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);*/
     }
 
     @Test
     public void parallelTestBig32() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
         Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 32));
-        /*long date1 = System.currentTimeMillis();
-        System.out.println(PrimeSearcherThread.Searcher(arr, 32));
-        long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);*/
     }
 
     @Test

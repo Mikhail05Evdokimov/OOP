@@ -139,8 +139,5 @@ public class StreamTests {
             6998029, 6998039};
         List<Integer> arr = new ArrayList<>(List.of(brr));
         Assertions.assertFalse(StreamSearcher.Searcher(arr));
-        long date1 = System.currentTimeMillis();
-        long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);
     }
 }

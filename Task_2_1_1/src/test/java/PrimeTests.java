@@ -137,10 +137,6 @@ public class PrimeTests {
             6998029, 6998039, 6997901, 6997927, 6997937, 6997967, 6998009,
             6998029, 6998039};
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        long date1 = System.currentTimeMillis();
-        //System.out.println(PrimeSearcher.Searcher(arr));
         Assertions.assertFalse(PrimeSearcher.Searcher(arr));
-        long date2 = System.currentTimeMillis();
-        System.out.println(date2 - date1);
     }
 }

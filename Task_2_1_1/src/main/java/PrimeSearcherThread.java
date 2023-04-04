@@ -1,13 +1,24 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class for checking an integers array for not-prime number.
+ * Here I use threads for parallel calculations.
+ */
 public class PrimeSearcherThread {
     static boolean flag = false;
 
     private static final Object lockObject = new Object();
+
+    /**
+     * Subclass, which is responsible for threads creating and using.
+     */
     private static class MyThread extends Thread {
         List<Integer> numbers;
 
+        /**
+         * Override run method, now it checks either number prime either not.
+         */
         @Override
         public void run() {
             for (int i : numbers) {
@@ -23,6 +34,13 @@ public class PrimeSearcherThread {
         }
     }
 
+    /**
+     * Class constructor.
+     *
+     * @param arr - input array.
+     * @param threadsCount - number of wishing threads.
+     * @return true if there is a not-prime number, false otherwise.
+     */
     public static boolean Searcher(List<Integer> arr, int threadsCount) {
         if (threadsCount < 1 || threadsCount > arr.size()) {
             throw new IllegalArgumentException("Bad threads number");
