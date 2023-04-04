@@ -2,8 +2,18 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class ThreadTests {
+
+    Scanner scan = new Scanner("input.txt");
+    while (scan.hasNextDouble() || scan.hasNextInt()) {
+        numberStack.push(scan.nextDouble());
+    }
+        if (numberStack.empty()) {
+        throw new IllegalArgumentException("Wrong numbers format");
+    }
+
     Integer[] brr = {6997901, 6997927, 6997937, 6997967, 6998009,
         6998029, 6998039, 6997901, 6997927, 6997937, 6997967, 6998009,
         6998029, 6998039, 6997901, 6997927, 6997937, 6997967, 6998009,
