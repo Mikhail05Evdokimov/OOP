@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ public class PrimeTests {
         arr.add(2);
         arr.add(3);
         arr.add(5);
-        Assertions.assertFalse(PrimeSearcher.Searcher(arr));
+        Assertions.assertFalse(PrimeSearcher.searcher(arr));
     }
 
     @Test
@@ -23,7 +22,7 @@ public class PrimeTests {
         arr.add(2);
         arr.add(8);
         arr.add(5);
-        Assertions.assertTrue(PrimeSearcher.Searcher(arr));
+        Assertions.assertTrue(PrimeSearcher.searcher(arr));
     }
 
     @Test
@@ -137,6 +136,6 @@ public class PrimeTests {
             6998029, 6998039, 6997901, 6997927, 6997937, 6997967, 6998009,
             6998029, 6998039};
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertFalse(PrimeSearcher.Searcher(arr));
+        Assertions.assertFalse(PrimeSearcher.searcher(arr));
     }
 }

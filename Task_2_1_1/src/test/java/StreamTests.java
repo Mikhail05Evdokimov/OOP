@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +12,7 @@ public class StreamTests {
         arr.add(2);
         arr.add(3);
         arr.add(5);
-        Assertions.assertFalse(StreamSearcher.Searcher(arr));
+        Assertions.assertFalse(StreamSearcher.searcher(arr));
     }
 
     @Test
@@ -24,11 +23,11 @@ public class StreamTests {
         arr.add(3);
         arr.add(5);
         arr.add(6);
-        Assertions.assertTrue(StreamSearcher.Searcher(arr));
+        Assertions.assertTrue(StreamSearcher.searcher(arr));
     }
 
     @Test
-    public void BigTest() {
+    public void bigTest() {
         Integer[] brr = {6997901, 6997927, 6997937, 6997967, 6998009,
             6998029, 6998039, 6997901, 6997927, 6997937, 6997967, 6998009,
             6998029, 6998039, 6997901, 6997927, 6997937, 6997967, 6998009,
@@ -138,6 +137,6 @@ public class StreamTests {
             6998029, 6998039, 6997901, 6997927, 6997937, 6997967, 6998009,
             6998029, 6998039};
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertFalse(StreamSearcher.Searcher(arr));
+        Assertions.assertFalse(StreamSearcher.searcher(arr));
     }
 }

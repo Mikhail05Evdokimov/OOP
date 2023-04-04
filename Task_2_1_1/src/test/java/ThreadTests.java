@@ -125,48 +125,48 @@ public class ThreadTests {
         arr.add(13);
         arr.add(11);
         arr.add(17);
-        Assertions.assertTrue(PrimeSearcherThread.Searcher(arr, 2));
+        Assertions.assertTrue(PrimeSearcherThread.searcher(arr, 2));
     }
 
     @Test
     public void parallelTestBig4() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 4));
+        Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 4));
     }
 
     @Test
     public void parallelTestBig2() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 2));
+        Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 2));
     }
 
     @Test
     public void parallelTestBig6() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 6));
+        Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 6));
     }
 
     @Test
     public void parallelTestBig8() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 8));
+        Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 8));
     }
 
     @Test
     public void parallelTestBig16() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 16));
+        Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 16));
     }
 
     @Test
     public void parallelTestBig32() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 32));
+        Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 32));
     }
 
     @Test
     public void parallelTestBig100() {
         List<Integer> arr = new ArrayList<>(List.of(brr));
-        Assertions.assertFalse(PrimeSearcherThread.Searcher(arr, 100));
+        Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 100));
     }
 }

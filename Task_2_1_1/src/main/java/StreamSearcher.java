@@ -12,7 +12,7 @@ public class StreamSearcher {
      * @param arr - input array.
      * @return true if there is a not-prime number, false otherwise.
      */
-    public static boolean Searcher(List<Integer> arr){
+    public static boolean searcher(List<Integer> arr) {
         return arr.stream().parallel().anyMatch(StreamSearcher::checker);
     }
 
@@ -23,8 +23,8 @@ public class StreamSearcher {
      * @return - false if number is prime, true otherwise.
      */
     private static boolean checker(Object i) {
-        for (int j = 2; j <(Integer) i; j++) {
-            if ((int)i % j == 0) {
+        for (int j = 2; j < (Integer) i; j++) {
+            if ((int) i % j == 0) {
                 return true;
             }
         }

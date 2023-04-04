@@ -12,7 +12,7 @@ public class PrimeSearcher {
      * @param arr - input array.
      * @return - true if there is a not-prime number, false otherwise.
      */
-    public static boolean Searcher(List<Integer> arr) {
+    public static boolean searcher(List<Integer> arr) {
         while (!(arr.isEmpty())) {
             int number = arr.remove(0);
             if (!(checker(number))) {

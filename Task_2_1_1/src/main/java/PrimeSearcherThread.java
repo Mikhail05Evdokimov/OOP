@@ -41,7 +41,7 @@ public class PrimeSearcherThread {
      * @param threadsCount - number of wishing threads.
      * @return true if there is a not-prime number, false otherwise.
      */
-    public static boolean Searcher(List<Integer> arr, int threadsCount) {
+    public static boolean searcher(List<Integer> arr, int threadsCount) {
         if (threadsCount < 1 || threadsCount > arr.size()) {
             throw new IllegalArgumentException("Bad threads number");
         }
