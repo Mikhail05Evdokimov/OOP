@@ -22,14 +22,18 @@ public class PrimeSearcherThread {
         @Override
         public void run() {
             for (int i : numbers) {
-                for (int j = 2; j < i; j++) {
-                    if (i % j == 0) {
-                        synchronized (lockObject) {
-                            flag = true;
-                        }
-                        break;
-                    }
+                separateMethod(i);
+            }
+        }
+    }
+
+    private static void separateMethod(int i) {
+        for (int j = 2; j < i; j++) {
+            if (i % j == 0) {
+                synchronized (lockObject) {
+                    flag = true;
                 }
+                break;
             }
         }
     }
