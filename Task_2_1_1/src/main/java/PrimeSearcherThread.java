@@ -14,7 +14,7 @@ public class PrimeSearcherThread {
      * Subclass, which is responsible for threads creating and using.
      */
     private static class MyThread extends Thread {
-        List<Integer> numbers;
+        private List<Integer> numbers;
 
         /**
          * Override run method, now it checks either number prime either not.
@@ -24,6 +24,12 @@ public class PrimeSearcherThread {
             for (int i : numbers) {
                 separateMethod(i);
             }
+        }
+
+        private void createNumbersArray(int block, int currentThread, List<Integer> arr) {
+            numbers = new ArrayList<>();
+            numbers.addAll(arr.subList(currentThread * block,
+                currentThread * block + block));
         }
     }
 
@@ -52,13 +58,11 @@ public class PrimeSearcherThread {
         MyThread[] myThreads = new MyThread[threadsCount];
         for (int i = 0; i < threadsCount; i++) {
             myThreads[i] = new MyThread();
-            myThreads[i].numbers = new ArrayList<>();
         }
         int currentThread = 0;
         int block = arr.size() / threadsCount;
         for (MyThread i : myThreads) {
-            i.numbers.addAll(arr.subList(currentThread * block,
-                currentThread * block + block));
+            i.createNumbersArray(block, currentThread, arr);
             currentThread++;
             i.start();
         }
