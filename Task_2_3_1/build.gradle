@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
 }
 
 group 'org.example'
@@ -24,3 +26,10 @@ jacocoTestReport {
         xml.required = true
     }
 }
+
+javafx {
+    version = "20"
+    modules = [ 'javafx.controls' ]
+}
+
+mainClassName = "App"
