@@ -22,7 +22,7 @@ public class PrimeSearcherThread {
         @Override
         public void run() {
             for (int i : numbers) {
-                PrimeNumberOrNotChecking(i);
+                primeNumberOrNotChecking(i);
             }
         }
 
@@ -39,7 +39,7 @@ public class PrimeSearcherThread {
         }
     }
 
-    private static void PrimeNumberOrNotChecking(int i) {
+    private static void primeNumberOrNotChecking(int i) {
         for (int j = 2; j < i; j++) {
             if (i % j == 0) {
                 synchronized (lockObject) {
