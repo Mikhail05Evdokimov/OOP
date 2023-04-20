@@ -120,12 +120,15 @@ public class ThreadTests {
         arr.add(1);
         arr.add(2);
         arr.add(3);
-        arr.add(6);
+        arr.add(5);
         arr.add(11);
         arr.add(13);
-        arr.add(11);
         arr.add(17);
-        Assertions.assertTrue(PrimeSearcherThread.searcher(arr, 2));
+        arr.add(19);
+        arr.add(19);
+        arr.add(19);
+        arr.add(10);
+        Assertions.assertTrue(PrimeSearcherThread.searcher(arr, 3));
     }
 
     @Test

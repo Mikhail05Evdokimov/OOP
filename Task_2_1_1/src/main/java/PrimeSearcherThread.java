@@ -22,18 +22,24 @@ public class PrimeSearcherThread {
         @Override
         public void run() {
             for (int i : numbers) {
-                separateMethod(i);
+                PrimeNumberOrNotChecking(i);
             }
         }
 
         private void createNumbersArray(int block, int currentThread, List<Integer> arr) {
             numbers = new ArrayList<>();
-            numbers.addAll(arr.subList(currentThread * block,
-                currentThread * block + block));
+            if (currentThread * block + block > arr.size()) {
+                numbers.addAll(arr.subList(currentThread * block,
+                    arr.size()));
+            }
+            else {
+                numbers.addAll(arr.subList(currentThread * block,
+                    currentThread * block + block));
+            }
         }
     }
 
-    private static void separateMethod(int i) {
+    private static void PrimeNumberOrNotChecking(int i) {
         for (int j = 2; j < i; j++) {
             if (i % j == 0) {
                 synchronized (lockObject) {
@@ -59,11 +65,11 @@ public class PrimeSearcherThread {
         for (int i = 0; i < threadsCount; i++) {
             myThreads[i] = new MyThread();
         }
-        int currentThread = 0;
-        int block = arr.size() / threadsCount;
+        int currentThreadNumber = 0;
+        int block = arr.size() / threadsCount + 1;
         for (MyThread i : myThreads) {
-            i.createNumbersArray(block, currentThread, arr);
-            currentThread++;
+            i.createNumbersArray(block, currentThreadNumber, arr);
+            currentThreadNumber++;
             i.start();
         }
 
