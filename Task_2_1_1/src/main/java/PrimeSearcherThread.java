@@ -68,9 +68,11 @@ public class PrimeSearcherThread {
         int currentThreadNumber = 0;
         int block = arr.size() / threadsCount + 1;
         for (MyThread i : myThreads) {
-            i.createNumbersArray(block, currentThreadNumber, arr);
-            currentThreadNumber++;
-            i.start();
+            if (!(currentThreadNumber * block > arr.size())) {
+                i.createNumbersArray(block, currentThreadNumber, arr);
+                currentThreadNumber++;
+                i.start();
+            }
         }
 
         for (MyThread i : myThreads) {
