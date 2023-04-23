@@ -1,8 +1,11 @@
-import org.junit.jupiter.api.Assertions;
 import java.util.ArrayList;
 import java.util.List;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Testing module for my Thread Parallel Prime searcher.
+ */
 public class ThreadTests {
 
     Integer[] brr = {6997901, 6997927, 6997937, 6997967, 6998009,
