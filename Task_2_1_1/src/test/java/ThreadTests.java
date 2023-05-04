@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -32,53 +33,91 @@ public class ThreadTests {
     @Test
     public void parallelTestBig4() {
         List<Integer> arr = new ArrayList<>();
-        File file = new File("Task_2_1_1\\src\\test\\resources\\input.txt");
-        try {
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNextInt()) {
-                arr.add(scanner.nextInt());
-            }
-            scanner.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("File error");
+        InputStream file = getClass().getClassLoader().getResourceAsStream("input.txt");
+        assert file != null;
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextInt()) {
+            arr.add(scanner.nextInt());
         }
-        System.out.println(arr);
-       // Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 4));
+        scanner.close();
+        Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 4));
     }
 
     @Test
     public void parallelTestBig2() {
-        List<Integer> arr = new ArrayList<>(List.of(brr));
+        List<Integer> arr = new ArrayList<>();
+        InputStream file = getClass().getClassLoader().getResourceAsStream("input.txt");
+        assert file != null;
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextInt()) {
+            arr.add(scanner.nextInt());
+        }
+        scanner.close();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 2));
     }
 
     @Test
     public void parallelTestBig6() {
-        List<Integer> arr = new ArrayList<>(List.of(brr));
+        List<Integer> arr = new ArrayList<>();
+        InputStream file = getClass().getClassLoader().getResourceAsStream("input.txt");
+        assert file != null;
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextInt()) {
+            arr.add(scanner.nextInt());
+        }
+        scanner.close();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 6));
     }
 
     @Test
     public void parallelTestBig8() {
-        List<Integer> arr = new ArrayList<>(List.of(brr));
+        List<Integer> arr = new ArrayList<>();
+        InputStream file = getClass().getClassLoader().getResourceAsStream("input.txt");
+        assert file != null;
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextInt()) {
+            arr.add(scanner.nextInt());
+        }
+        scanner.close();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 8));
     }
 
     @Test
     public void parallelTestBig16() {
-        List<Integer> arr = new ArrayList<>(List.of(brr));
+        List<Integer> arr = new ArrayList<>();
+        InputStream file = getClass().getClassLoader().getResourceAsStream("input.txt");
+        assert file != null;
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextInt()) {
+            arr.add(scanner.nextInt());
+        }
+        scanner.close();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 16));
     }
 
     @Test
     public void parallelTestBig32() {
-        List<Integer> arr = new ArrayList<>(List.of(brr));
+        List<Integer> arr = new ArrayList<>();
+        InputStream file = getClass().getClassLoader().getResourceAsStream("input.txt");
+        assert file != null;
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextInt()) {
+            arr.add(scanner.nextInt());
+        }
+        scanner.close();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 32));
     }
 
     @Test
     public void parallelTestBig100() {
-        List<Integer> arr = new ArrayList<>(List.of(brr));
+        List<Integer> arr = new ArrayList<>();
+        InputStream file = getClass().getClassLoader().getResourceAsStream("input.txt");
+        assert file != null;
+        Scanner scanner = new Scanner(file);
+        while (scanner.hasNextInt()) {
+            arr.add(scanner.nextInt());
+        }
+        scanner.close();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 100));
     }
 }
