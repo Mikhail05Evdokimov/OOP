@@ -30,7 +30,8 @@ public class Cook extends Person {
         }
     }
 
-    private boolean workDone() throws InterruptedException {
+    @Override
+    protected boolean workDone() throws InterruptedException {
         if (Pizzeria.stockIsFree()) {
             sleep(workSpeed);
             System.out.println("C: Order " + currentOrder.orderName + " cooked.");

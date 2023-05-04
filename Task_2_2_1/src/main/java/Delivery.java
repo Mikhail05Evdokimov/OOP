@@ -12,28 +12,34 @@ public class Delivery extends Person{
         workSpeed = speed;
     }
 
-    private boolean takeOrders() { //wait + notify
+    private boolean takeOrders() throws InterruptedException {
         List<Order> orders = Pizzeria.takePizzaFromStock(baggage);
         currentOrders.addAll(orders);
         return currentOrders.size() != 0;
     }
 
-    private void workDone() throws InterruptedException { //обработкa исключений
+    @Override
+    protected boolean workDone() throws InterruptedException { //обработкa исключений
         sleep(currentOrders.element().distance / workSpeed);
         System.out.println("D: Order " + currentOrders.remove().orderName + " delivered.");
+        return true;
     }
 
     @Override
     public void run() {
         while (true) {
-            if (takeOrders()) {
-                while (!(currentOrders.isEmpty())) {
-                    try {
-                        workDone();
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+            try {
+                if (takeOrders()) {
+                    while (!(currentOrders.isEmpty())) {
+                        try {
+                            workDone();
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                 }
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
     }

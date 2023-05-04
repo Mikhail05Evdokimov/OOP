@@ -1,4 +1,7 @@
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
 
 public class Pizzeria {
 
@@ -38,21 +41,20 @@ public class Pizzeria {
 
     public static void movePizzaToStock(Order order) {
         synchronized (stockQueue) {
+
             stockQueue.add(order);
             currentNumber++;
+            stockQueue.notifyAll();
         }
     }
 
-    public static boolean stockIsEmpty() {
+    public static List<Order> takePizzaFromStock(int baggageSize) throws InterruptedException {
         synchronized (stockQueue) {
-            return stockQueue.isEmpty();
-        }
-    }
-
-    public static List<Order> takePizzaFromStock(int baggageSize) {
-        List<Order> currentOrders = new ArrayList<>();
-        Order order;
-        synchronized (stockQueue) {
+            while (stockQueue.isEmpty()) {
+                stockQueue.wait();
+            }
+            List<Order> currentOrders = new ArrayList<>();
+            Order order;
             while (!(stockQueue.isEmpty()) && currentOrders.size() < baggageSize) {
                 currentNumber--;
                 order = stockQueue.remove();

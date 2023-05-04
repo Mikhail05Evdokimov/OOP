@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         new Pizzeria(10);
         var cook1 = new Cook(300);
         var cook2 = new Cook(400);
@@ -17,6 +17,6 @@ public class Main {
         Pizzeria.newOrder("last", 500);
         //while (true) {
 
-        //} подумать над аккуратным завершением
+        //} //подумать над аккуратным завершением
     }
 }
