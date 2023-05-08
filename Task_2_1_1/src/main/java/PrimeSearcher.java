@@ -1,4 +1,5 @@
 import java.util.List;
+import static java.lang.Math.sqrt;
 
 /**
  * Class for checking an integers array for not-prime number.
@@ -14,7 +15,7 @@ public class PrimeSearcher {
      */
     public static boolean searcher(List<Integer> arr) {
         for (int i : arr) {
-            if (!(checker(i))) {
+            if (!(primeNumberOrNot(i))) {
                 return true;
             }
         }
@@ -27,8 +28,8 @@ public class PrimeSearcher {
      * @param number - number to check.
      * @return - false if number is prime, true otherwise.
      */
-    private static boolean checker(int number) {
-        for (int i = 2; i < number; i++) {
+    private static boolean primeNumberOrNot(int number) {
+        for (int i = 2; i < sqrt(number); i++) {
             if (number % i == 0) {
                 return false;
             }

@@ -40,7 +40,10 @@ public class ThreadTests {
             arr.add(scanner.nextInt());
         }
         scanner.close();
+        long date1 = System.currentTimeMillis();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 4));
+        long date2 = System.currentTimeMillis();
+        System.out.println(date2 - date1);
     }
 
     @Test
@@ -53,7 +56,10 @@ public class ThreadTests {
             arr.add(scanner.nextInt());
         }
         scanner.close();
+        long date1 = System.currentTimeMillis();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 2));
+        long date2 = System.currentTimeMillis();
+        System.out.println(date2 - date1);
     }
 
     @Test
@@ -66,7 +72,10 @@ public class ThreadTests {
             arr.add(scanner.nextInt());
         }
         scanner.close();
+        long date1 = System.currentTimeMillis();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 6));
+        long date2 = System.currentTimeMillis();
+        System.out.println(date2 - date1);
     }
 
     @Test
@@ -79,7 +88,10 @@ public class ThreadTests {
             arr.add(scanner.nextInt());
         }
         scanner.close();
+        long date1 = System.currentTimeMillis();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 8));
+        long date2 = System.currentTimeMillis();
+        System.out.println(date2 - date1);
     }
 
     @Test
@@ -92,7 +104,10 @@ public class ThreadTests {
             arr.add(scanner.nextInt());
         }
         scanner.close();
+        long date1 = System.currentTimeMillis();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 16));
+        long date2 = System.currentTimeMillis();
+        System.out.println(date2 - date1);
     }
 
     @Test
@@ -105,7 +120,10 @@ public class ThreadTests {
             arr.add(scanner.nextInt());
         }
         scanner.close();
+        long date1 = System.currentTimeMillis();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 32));
+        long date2 = System.currentTimeMillis();
+        System.out.println(date2 - date1);
     }
 
     @Test
@@ -118,6 +136,9 @@ public class ThreadTests {
             arr.add(scanner.nextInt());
         }
         scanner.close();
+        long date1 = System.currentTimeMillis();
         Assertions.assertFalse(PrimeSearcherThread.searcher(arr, 100));
+        long date2 = System.currentTimeMillis();
+        System.out.println(date2 - date1);
     }
 }

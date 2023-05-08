@@ -1,4 +1,5 @@
 import java.util.List;
+import static java.lang.Math.sqrt;
 
 /**
  * Class for checking an integers array for not-prime number.
@@ -13,7 +14,7 @@ public class StreamSearcher {
      * @return true if there is a not-prime number, false otherwise.
      */
     public static boolean searcher(List<Integer> arr) {
-        return arr.stream().parallel().anyMatch(StreamSearcher::checker);
+        return arr.stream().parallel().anyMatch(StreamSearcher::primeNumberOrNot);
     }
 
     /**
@@ -22,8 +23,8 @@ public class StreamSearcher {
      * @param i - number to check.
      * @return - false if number is prime, true otherwise.
      */
-    private static boolean checker(Object i) {
-        for (int j = 2; j < (Integer) i; j++) {
+    private static boolean primeNumberOrNot(Object i) {
+        for (int j = 2; j < sqrt((Integer) i); j++) {
             if ((int) i % j == 0) {
                 return true;
             }

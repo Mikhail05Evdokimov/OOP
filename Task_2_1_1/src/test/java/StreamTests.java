@@ -42,6 +42,9 @@ public class StreamTests {
             arr.add(scanner.nextInt());
         }
         scanner.close();
+        long date1 = System.currentTimeMillis();
         Assertions.assertFalse(StreamSearcher.searcher(arr));
+        long date2 = System.currentTimeMillis();
+        System.out.println(date2 - date1);
     }
 }

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import static java.lang.Math.sqrt;
 
 /**
  * Class for checking an integers array for not-prime number.
@@ -22,7 +23,7 @@ public class PrimeSearcherThread {
         @Override
         public void run() {
             for (int i : numbers) {
-                primeNumberOrNotChecking(i);
+                primeNumberOrNot(i);
             }
         }
 
@@ -39,8 +40,8 @@ public class PrimeSearcherThread {
         }
     }
 
-    private static void primeNumberOrNotChecking(int i) {
-        for (int j = 2; j < i; j++) {
+    private static void primeNumberOrNot(int i) {
+        for (int j = 2; j <= sqrt(i); j++) {
             if (i % j == 0) {
                 synchronized (lockObject) {
                     flag = true;

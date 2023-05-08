@@ -41,6 +41,9 @@ public class PrimeTests {
             arr.add(scanner.nextInt());
         }
         scanner.close();
+        long date1 = System.currentTimeMillis();
         Assertions.assertFalse(PrimeSearcher.searcher(arr));
+        long date2 = System.currentTimeMillis();
+        System.out.println(date2 - date1);
     }
 }
