@@ -1,13 +1,13 @@
-import org.json.simple.* ;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
@@ -16,8 +16,6 @@ public class Main {
         JSONParser jsonParser = new JSONParser();
         JSONObject pizza = (JSONObject) jsonParser.parse(reader);
         new Pizzeria(Integer.parseInt(pizza.get("Storage capacity").toString()));
-//        var cookNum = Integer.parseInt(pizza.get("Cookers number").toString());
-//        var delNum = Integer.parseInt(pizza.get("Delivers number").toString());
 
         JSONArray cookList = (JSONArray) pizza.get("CookStaff");
         JSONArray delList = (JSONArray) pizza.get("DeliverStaff");
@@ -51,9 +49,21 @@ public class Main {
         Pizzeria.newOrder("4", 200);
         Pizzeria.newOrder("5", 300);
         Pizzeria.newOrder("last", 500);
-        //while (true) {
 
+        Scanner in = new Scanner(System.in);
+        while (!(in.hasNextInt())) {
 
+        }
+
+        for (Cook i : cookers) {
+            i.goHome = true;
+        }
+
+        for (Delivery i : delivers) {
+            i.goHome = true;
+        }
+
+        System.out.println("END");
         //} //подумать над аккуратным завершением
     }
 }

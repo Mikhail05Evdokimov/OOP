@@ -11,6 +11,7 @@ public class Delivery extends Person{
         baggage = bag;
         workSpeed = speed;
         this.name = name;
+        goHome = false;
     }
 
     private boolean takeOrders() throws InterruptedException {
@@ -28,7 +29,7 @@ public class Delivery extends Person{
 
     @Override
     public void run() {
-        while (true) {
+        while (!(goHome)) {
             try {
                 if (takeOrders()) {
                     while (!(currentOrders.isEmpty())) {

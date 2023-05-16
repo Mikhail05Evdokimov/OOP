@@ -5,6 +5,7 @@ public class Cook extends Person {
     public Cook(int workSpeed, String name) {
         this.workSpeed = workSpeed;
         this.name = name;
+        goHome = false;
     }
 
     private boolean takeOrder() throws InterruptedException {
@@ -18,7 +19,7 @@ public class Cook extends Person {
 
     @Override
     public void run() {
-        while (true) {
+        while (!(goHome)) {
             try {
                 if (takeOrder()) {
                     while (true) {
