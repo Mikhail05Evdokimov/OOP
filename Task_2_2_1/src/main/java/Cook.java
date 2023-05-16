@@ -2,11 +2,12 @@ public class Cook extends Person {
 
     Order currentOrder;
 
-    public Cook(int workSpeed) {
+    public Cook(int workSpeed, String name) {
         this.workSpeed = workSpeed;
+        this.name = name;
     }
 
-    private boolean takeOrder() {
+    private boolean takeOrder() throws InterruptedException {
         if (Pizzeria.checkOrderQueue()) {
             return false;
         }
@@ -18,26 +19,26 @@ public class Cook extends Person {
     @Override
     public void run() {
         while (true) {
-            if (takeOrder()) {
-                while (true) {
-                    try {
-                        if (workDone()) break;
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+            try {
+                if (takeOrder()) {
+                    while (true) {
+                        try {
+                            if (workDone()) break;
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
                     }
                 }
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
         }
     }
 
     @Override
     protected boolean workDone() throws InterruptedException {
-        if (Pizzeria.stockIsFree()) {
-            sleep(workSpeed);
-            System.out.println("C: Order " + currentOrder.orderName + " cooked.");
+        sleep(workSpeed);
             Pizzeria.movePizzaToStock(currentOrder);
             return true;
-        }
-        return false;
     }
 }

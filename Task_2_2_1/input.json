@@ -1,0 +1,1 @@
+{"DeliverStaff":[{"Speed":"2","BagSize":"2","Name":"First deliver"},{"Speed":"3","BagSize":"1","Name":"Second deliver"}],"Storage capacity":"5","CookStaff":[{"WorkTime":"3000","Name":"First cooker"},{"WorkTime":"4000","Name":"Second cooker"}],"Cookers number":"2","Delivers number":"2"}

@@ -6,10 +6,11 @@ public class Delivery extends Person{
     int baggage;
     Queue<Order> currentOrders;
 
-    public Delivery(int bag, int speed) {
+    public Delivery(int bag, int speed, String name) {
         currentOrders = new ArrayDeque<>();
         baggage = bag;
         workSpeed = speed;
+        this.name = name;
     }
 
     private boolean takeOrders() throws InterruptedException {
@@ -19,7 +20,7 @@ public class Delivery extends Person{
     }
 
     @Override
-    protected boolean workDone() throws InterruptedException { //обработкa исключений
+    protected boolean workDone() throws InterruptedException {
         sleep(currentOrders.element().distance / workSpeed);
         System.out.println("D: Order " + currentOrders.remove().orderName + " delivered.");
         return true;

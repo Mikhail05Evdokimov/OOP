@@ -20,6 +20,7 @@ public class Pizzeria {
     public static void newOrder(String orderName, int distance) {
         synchronized (ordersQueue) {
             ordersQueue.add(new Order(orderName, distance));
+            ordersQueue.notifyAll();
         }
     }
 
@@ -29,31 +30,37 @@ public class Pizzeria {
         }
     }
 
-    public static Order getNextOrder() {
+    public static Order getNextOrder() throws InterruptedException {
         synchronized (ordersQueue) {
+            while (ordersQueue.isEmpty()) {
+                ordersQueue.wait();
+            }
             return ordersQueue.remove();
         }
     }
 
-    public static boolean stockIsFree() {
+    private static boolean stockIsFree() {
         return (capacity > currentNumber);
     }
 
-    public static void movePizzaToStock(Order order) {
+    public static void movePizzaToStock(Order order) throws InterruptedException {
         synchronized (stockQueue) {
-
+            while (!(stockIsFree())) {
+                stockQueue.wait();
+            }
             stockQueue.add(order);
             currentNumber++;
+            System.out.println("C: Order " + order.orderName + " cooked.");
             stockQueue.notifyAll();
         }
     }
 
     public static List<Order> takePizzaFromStock(int baggageSize) throws InterruptedException {
+        List<Order> currentOrders = new ArrayList<>();
         synchronized (stockQueue) {
             while (stockQueue.isEmpty()) {
                 stockQueue.wait();
             }
-            List<Order> currentOrders = new ArrayList<>();
             Order order;
             while (!(stockQueue.isEmpty()) && currentOrders.size() < baggageSize) {
                 currentNumber--;
@@ -61,6 +68,7 @@ public class Pizzeria {
                 System.out.println("D: Order " + order.orderName + " in a way.");
                 currentOrders.add(order);
             }
+            stockQueue.notifyAll();
             return currentOrders;
         }
     }
