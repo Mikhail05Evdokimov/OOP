@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -51,8 +52,14 @@ public class Main {
         Pizzeria.newOrder("last", 500);
 
         Scanner in = new Scanner(System.in);
-        while (!(in.hasNextInt())) {
-
+        while (true) {
+            if(in.hasNextLine()) {
+                String orderName = in.next();
+                if(Objects.equals(orderName, "stop") || Objects.equals(orderName, "STOP")) {
+                    break;
+                }
+                Pizzeria.newOrder(orderName, Integer.parseInt(in.next()));
+            }
         }
 
         for (Cook i : cookers) {
@@ -61,9 +68,9 @@ public class Main {
 
         for (Delivery i : delivers) {
             i.goHome = true;
+            i.interrupt();
         }
 
-        System.out.println("END");
-        //} //подумать над аккуратным завершением
+        System.out.println("CLOSED");
     }
 }

@@ -58,8 +58,12 @@ public class Pizzeria {
     public static List<Order> takePizzaFromStock(int baggageSize) throws InterruptedException {
         List<Order> currentOrders = new ArrayList<>();
         synchronized (stockQueue) {
-            while (stockQueue.isEmpty()) {
-                stockQueue.wait();
+            try {
+                while (stockQueue.isEmpty() && !(Thread.currentThread().isInterrupted())) {
+                    stockQueue.wait();
+                }
+            } catch (InterruptedException e) {
+                System.out.println("Delivery's thread has been interrupted");
             }
             Order order;
             while (!(stockQueue.isEmpty()) && currentOrders.size() < baggageSize) {

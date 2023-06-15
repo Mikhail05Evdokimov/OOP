@@ -22,7 +22,7 @@ public class Cook extends Person {
         while (!(goHome)) {
             try {
                 if (takeOrder()) {
-                    while (true) {
+                    while (!(goHome)) {
                         try {
                             if (workDone()) break;
                         } catch (InterruptedException e) {
@@ -34,6 +34,7 @@ public class Cook extends Person {
                 throw new RuntimeException(e);
             }
         }
+        System.out.println(name + " Went home");
     }
 
     @Override

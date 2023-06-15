@@ -44,5 +44,6 @@ public class Delivery extends Person{
                 throw new RuntimeException(e);
             }
         }
+        System.out.println(name + " Went home");
     }
 }
