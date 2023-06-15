@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ThreadTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-08T09:38:27" hostname="VL-NB-03" time="67.145">
+  <properties/>
+  <testcase name="parallelTestBig100()" classname="ThreadTests" time="67.145"/>
+  <system-out><![CDATA[56836
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
