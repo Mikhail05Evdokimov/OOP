@@ -1,20 +1,39 @@
+/**
+ * Cook's class extends Person.
+ * Cook can get order, finish it and move pizza to the stock.
+ */
+
 public class Cook extends Person {
 
-    Order currentOrder;
+    private Order currentOrder;
 
-    public Cook(int workSpeed, String name) {
-        this.workSpeed = workSpeed;
+    /**
+     * Class constructor.
+     *
+     * @param workTime - cook's working time for one pizza.
+     * @param name - cook's name.
+     */
+    public Cook(int workTime, String name) {
+        this.workSpeed = workTime;
         this.name = name;
         goHome = false;
     }
 
+    /**
+     * Gets an order from the orders queue.
+     *
+     * @return true if success, else return false.
+     * @throws InterruptedException - if cook is waiting on orders queue.
+     */
     private boolean takeOrder() throws InterruptedException {
-        if (Pizzeria.checkOrderQueue()) {
+        currentOrder = Pizzeria.getNextOrder();
+        if (currentOrder != null) {
+            System.out.println("C: Order " + currentOrder.orderName + " accepted.");
+            return true;
+        }
+        else {
             return false;
         }
-        currentOrder = Pizzeria.getNextOrder();
-        System.out.println("C: Order " + currentOrder.orderName + " accepted.");
-        return true;
     }
 
     @Override
@@ -24,7 +43,9 @@ public class Cook extends Person {
                 if (takeOrder()) {
                     while (!(goHome)) {
                         try {
-                            if (workDone()) break;
+                            if (workDone()) {
+                                break;
+                            }
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
@@ -39,8 +60,13 @@ public class Cook extends Person {
 
     @Override
     protected boolean workDone() throws InterruptedException {
-        sleep(workSpeed);
-            Pizzeria.movePizzaToStock(currentOrder);
-            return true;
+        try {
+            sleep(workSpeed);
+        }
+        catch (InterruptedException e) {
+            System.out.println("Cooker's thread has been interrupted");
+        }
+        Pizzeria.movePizzaToStock(currentOrder);
+        return true;
     }
 }

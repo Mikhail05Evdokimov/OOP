@@ -1,7 +1,3 @@
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,6 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
@@ -28,12 +28,14 @@ public class Main {
 
         while (cookItr.hasNext()) {
             JSONObject o = (JSONObject) cookItr.next();
-            cookers.add(new Cook(Integer.parseInt(o.get("WorkTime").toString()), o.get("Name").toString()));
+            cookers.add(new Cook(Integer.parseInt(o.get("WorkTime").toString()),
+                o.get("Name").toString()));
         }
 
         while (delItr.hasNext()) {
             JSONObject o = (JSONObject) delItr.next();
-            delivers.add(new Delivery(Integer.parseInt(o.get("BagSize").toString()), Integer.parseInt(o.get("Speed").toString()), o.get("Name").toString()));
+            delivers.add(new Delivery(Integer.parseInt(o.get("BagSize").toString()),
+                Integer.parseInt(o.get("Speed").toString()), o.get("Name").toString()));
         }
 
         for (Cook i : cookers) {
@@ -53,9 +55,9 @@ public class Main {
 
         Scanner in = new Scanner(System.in);
         while (true) {
-            if(in.hasNextLine()) {
+            if (in.hasNextLine()) {
                 String orderName = in.next();
-                if(Objects.equals(orderName, "stop") || Objects.equals(orderName, "STOP")) {
+                if (Objects.equals(orderName, "s")) {
                     break;
                 }
                 Pizzeria.newOrder(orderName, Integer.parseInt(in.next()));
@@ -64,6 +66,7 @@ public class Main {
 
         for (Cook i : cookers) {
             i.goHome = true;
+            i.interrupt();
         }
 
         for (Delivery i : delivers) {
@@ -74,3 +77,4 @@ public class Main {
         System.out.println("CLOSED");
     }
 }
+//интерапт поварам, приватные филды у людей.

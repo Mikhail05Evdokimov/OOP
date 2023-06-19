@@ -3,6 +3,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
+/**
+ * Pizzeria static class with stock and orders queues and
+ * methods to work with it.
+ */
 public class Pizzeria {
 
     private static Queue<Order> stockQueue;
@@ -10,6 +14,11 @@ public class Pizzeria {
     private static int capacity;
     private static int currentNumber;
 
+    /**
+     * Class constructor.
+     *
+     * @param cap - stock capacity.
+     */
     public Pizzeria(int cap) {
         capacity = cap;
         ordersQueue = new ArrayDeque<>();
@@ -17,6 +26,12 @@ public class Pizzeria {
         currentNumber = 0;
     }
 
+    /**
+     * Creates new order and adds it to orders queue.
+     *
+     * @param orderName - new order's name.
+     * @param distance - how long a delivery should run.
+     */
     public static void newOrder(String orderName, int distance) {
         synchronized (ordersQueue) {
             ordersQueue.add(new Order(orderName, distance));
@@ -24,18 +39,23 @@ public class Pizzeria {
         }
     }
 
-    public static boolean checkOrderQueue() {
+    /**
+     * Gives next order to cook.
+     *
+     * @return - next order from orders queue.
+     */
+    public static Order getNextOrder() {
         synchronized (ordersQueue) {
-            return ordersQueue.isEmpty();
-        }
-    }
-
-    public static Order getNextOrder() throws InterruptedException {
-        synchronized (ordersQueue) {
-            while (ordersQueue.isEmpty()) {
-                ordersQueue.wait();
+            try {
+                while (ordersQueue.isEmpty()) {
+                    ordersQueue.wait();
+                }
+                return ordersQueue.remove();
             }
-            return ordersQueue.remove();
+            catch (InterruptedException e) {
+                System.out.println("Cooker's thread has been interrupted");
+            }
+            return null;
         }
     }
 
@@ -45,8 +65,13 @@ public class Pizzeria {
 
     public static void movePizzaToStock(Order order) throws InterruptedException {
         synchronized (stockQueue) {
-            while (!(stockIsFree())) {
-                stockQueue.wait();
+            try {
+                while (!(stockIsFree())) {
+                    stockQueue.wait();
+                }
+            }
+            catch (InterruptedException e) {
+                System.out.println("Cooker's thread has been interrupted");
             }
             stockQueue.add(order);
             currentNumber++;
@@ -55,7 +80,7 @@ public class Pizzeria {
         }
     }
 
-    public static List<Order> takePizzaFromStock(int baggageSize) throws InterruptedException {
+    public static List<Order> takePizzaFromStock(int baggageSize) {
         List<Order> currentOrders = new ArrayList<>();
         synchronized (stockQueue) {
             try {
